@@ -13,6 +13,7 @@ import androidx.compose.material.icons.automirrored.outlined.ViewQuilt
 import androidx.compose.material.icons.outlined.Android
 import androidx.compose.material.icons.outlined.Autorenew
 import androidx.compose.material.icons.outlined.Dns
+import androidx.compose.material.icons.outlined.HealthAndSafety
 import androidx.compose.material.icons.outlined.ExpandMore
 import androidx.compose.material.icons.outlined.MonitorHeart
 import androidx.compose.material.icons.outlined.Public
@@ -158,6 +159,18 @@ fun SettingsScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.Top),
         modifier = Modifier.verticalScroll(rememberScrollState()).fillMaxSize(),
     ) {
+        Column {
+            GroupLabel(
+                stringResource(R.string.xt_group_label),
+                modifier = Modifier.padding(horizontal = 16.dp),
+            )
+            SurfaceRow(
+                leading = { Icon(Icons.Outlined.HealthAndSafety, contentDescription = null) },
+                title = stringResource(R.string.xt_watchdog_title),
+                description = { DescriptionText(stringResource(R.string.xt_watchdog_entry_desc)) },
+                onClick = { navController.push(Route.ServerWatchdog) },
+            )
+        }
         Column {
             GroupLabel(
                 stringResource(R.string.tunnel).capitalize(locale),

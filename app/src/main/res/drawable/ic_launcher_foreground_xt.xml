@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- WireguardXT launcher foreground: original shield + pulse mark (108dp adaptive canvas) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:pivotX="54"
+        android:pivotY="54.5"
+        android:scaleX="1.1"
+        android:scaleY="1.1">
+        <path android:pathData="M54,27 L77,34.5 L77,53.5 C77,67 67.5,77 54,82.5 C40.5,77 31,67 31,53.5 L31,34.5 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="54"
+                    android:startY="27"
+                    android:endX="54"
+                    android:endY="82.5">
+                    <item android:offset="0" android:color="#FF2EE6C9" />
+                    <item android:offset="1" android:color="#FF0E8FB0" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        <path
+            android:pathData="M54,31.5 L73,37.7 L73,53.5 C73,64.6 65.4,73 54,78 C42.6,73 35,64.6 35,53.5 L35,37.7 Z"
+            android:strokeWidth="1.2"
+            android:strokeColor="#2EFFFFFF" />
+        <path
+            android:pathData="M35.5,56 L44.5,56 L48.5,46.5 L54,66 L58.5,50.5 L61.5,56 L72.5,56"
+            android:strokeWidth="3.8"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+    </group>
+</vector>

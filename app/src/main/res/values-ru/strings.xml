@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">Туннелирование через Ethernet</string>
     <string name="prominent_background_location_message">Эта функция требует фоновый доступ к местоположению для отслеживания имён сетей Wi-Fi, даже когда приложение закрыто. Для получения дополнительной информации, прочтите политику конфиденциальности на экране поддержки.</string>
     <string name="prominent_background_location_title">Фоновое отслеживание местоположения</string>
-    <string name="thank_you">Благодарим вас за использование WG Tunnel!</string>
+    <string name="thank_you">Благодарим вас за использование WireguardXT!</string>
     <string name="trusted_ssid_value_description">Отправить SSID</string>
     <string name="add_tunnels_text">Добавить из файла или архива</string>
     <string name="add_from_qr">Добавить из QR-кода</string>
@@ -463,7 +463,7 @@
     <string name="restore_failed_invalid_file">Восстановление не выполнено: выберите правильный файл резервной копии (.sqlite3 или .sqlite3.aes)</string>
     <string name="error_invalid_config_url">Ссылка вернула неправильный файл конфигурации. Убедитесь, что используете прямой URL для скачивания.</string>
     <string name="local_network_permission_title">Требуется доступ к локальной сети</string>
-    <string name="local_network_permission_intro">WG Tunnel требуется доступ к локальной сети, чтобы некоторые функции работали должным образом.</string>
+    <string name="local_network_permission_intro">WireguardXT требуется доступ к локальной сети, чтобы некоторые функции работали должным образом.</string>
     <string name="local_network_permission_issues_intro">Без этого разрешения у вас могут возникнуть проблемы с:</string>
     <string name="local_network_permission_feature_tunnels">— Проблемы с подключением при использовании раздельного туннелирования, обхода LAN или серверов, размещённых в вашей локальной сети</string>
     <string name="local_network_permission_feature_autotunnel">— Функции автоматического и раздельного туннелирования</string>

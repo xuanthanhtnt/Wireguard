@@ -8,6 +8,7 @@ import com.zaneschepke.wireguardautotunnel.core.orchestration.TunnelCoordinator
 import com.zaneschepke.wireguardautotunnel.di.Scope
 import com.zaneschepke.wireguardautotunnel.domain.enums.NotificationAction
 import com.zaneschepke.wireguardautotunnel.notification.NotificationService
+import com.zaneschepke.wireguardautotunnel.xt.ServerWatchdogCoordinator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
@@ -20,6 +21,8 @@ class NotificationActionReceiver : BroadcastReceiver(), KoinComponent {
     private val tunnelCoordinator: TunnelCoordinator by inject()
 
     private val autoTunnelCoordinator: AutoTunnelCoordinator by inject()
+
+    private val watchdogCoordinator: ServerWatchdogCoordinator by inject()
 
     private val applicationScope: CoroutineScope = get(named(Scope.APPLICATION))
 
@@ -45,6 +48,14 @@ class NotificationActionReceiver : BroadcastReceiver(), KoinComponent {
 
                 NotificationAction.STOP_ALL.name -> {
                     tunnelCoordinator.stopActiveTunnels()
+                }
+
+                NotificationAction.WATCHDOG_RESUME.name -> {
+                    watchdogCoordinator.resumeNow()
+                }
+
+                NotificationAction.WATCHDOG_CANCEL.name -> {
+                    watchdogCoordinator.cancelPause()
                 }
             }
         }

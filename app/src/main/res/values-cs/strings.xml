@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">Tunelovat na ethernetu</string>
     <string name="prominent_background_location_message">Tato funkce vyžaduje oprávnění pro přístup k poloze na pozadí pro zapnutí monitorování Wi-Fi SSID, i když je aplikace zavřená. Pro více detailů, podívejte se prosím na zásady soukromí umístěné v kategorii Podpora.</string>
     <string name="prominent_background_location_title">Zpřístupnění stávající polohy na pozadí</string>
-    <string name="thank_you">Děkujeme za používání WG Tunnel!</string>
+    <string name="thank_you">Děkujeme za používání WireguardXT!</string>
     <string name="trusted_ssid_value_description">Odeslat SSID</string>
     <string name="add_tunnels_text">Přidat ze souboru nebo zipu</string>
     <string name="add_from_qr">Přidat z QR kódu</string>
@@ -420,7 +420,7 @@
     <string name="restore_failed_invalid_file">Obnovení se nezdařilo. Vyberte platný záložní soubor (.sqlite3 nebo .sqlite3.aes)</string>
     <string name="error_invalid_config_url">Tento odkaz vedl k neplatnému konfiguračnímu souboru. Ujistěte se, že používáte přímý odkaz ke stažení.</string>
     <string name="local_network_permission_title">Vyžadován přístup k místní síti </string>
-    <string name="local_network_permission_intro">Aby některé funkce aplikace WG Tunnel fungovaly správně, je nutné, aby měla přístup k vaší lokální síti.</string>
+    <string name="local_network_permission_intro">Aby některé funkce aplikace WireguardXT fungovaly správně, je nutné, aby měla přístup k vaší lokální síti.</string>
     <string name="local_network_permission_issues_intro">Bez tohoto oprávnění mohou nastat problémy s:</string>
     <string name="local_network_permission_feature_tunnels">- Problémy s připojením částečného tunelování, obcházením sítě LAN nebo servery hostovanými ve vaší lokální síti</string>
     <string name="local_network_permission_feature_autotunnel">- Funkce automatického tunelování a částečného tunelování</string>

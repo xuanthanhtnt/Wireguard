@@ -29,6 +29,7 @@ import com.zaneschepke.wireguardautotunnel.domain.sideeffect.GlobalSideEffect
 import com.zaneschepke.wireguardautotunnel.service.ServiceManager
 import com.zaneschepke.wireguardautotunnel.util.StringValue
 import com.zaneschepke.wireguardautotunnel.util.extensions.toTunnelDnsConfigOrNull
+import com.zaneschepke.wireguardautotunnel.xt.XtEndpointOverrides
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -202,7 +203,7 @@ class TunnelCoordinator(
         // wait for app to be bootstrapped
         bootstrapCoordinator.isReady.first { it }
 
-        if (source == TunnelActionSource.USER) {
+        if (source == TunnelActionSource.USER || source == TunnelActionSource.WATCHDOG) {
             markUserOverride()
         }
 
@@ -221,7 +222,7 @@ class TunnelCoordinator(
 
     suspend fun stopTunnel(id: Int, source: TunnelActionSource = TunnelActionSource.USER) =
         tunnelMutex.withLock {
-            if (source == TunnelActionSource.USER) {
+            if (source == TunnelActionSource.USER || source == TunnelActionSource.WATCHDOG) {
                 markUserOverride()
             }
             stopTunnelInternal(id, source)
@@ -284,10 +285,14 @@ class TunnelCoordinator(
                 null
             }
 
-        val runConfig =
+        val reconciledConfig =
             if (policy.hasAnyOverrides) {
                 ConfigReconciler.reconcileConfig(config, globalConfig, policy)
             } else config
+
+        // WireguardXT: a server IP change detected by the watchdog is pinned for a few minutes so
+        // the tunnel does not wait for stale DNS caches to expire
+        val runConfig = XtEndpointOverrides.apply(tunnelConfig.id, reconciledConfig)
 
         val tunnelDnsConfig = dnsSettings.toTunnelDnsConfigOrNull(runConfig)
         val outerConfig = resolveOuterConfig(tunnelConfig, globalConfig, policy)

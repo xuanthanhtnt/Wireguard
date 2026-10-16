@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_permission_title">Ponte di controllo WG Tunnel</string>
+    <string name="app_permission_title">Ponte di controllo WireguardXT</string>
     <string name="app_permission_description">Controllo tunnel e funzionalità automatiche.</string>
     <string name="error_file_extension">Il file non è di tipo \".conf\" o \".zip\"</string>
     <string name="tunnels">Tunnel</string>
@@ -9,7 +9,7 @@
     <string name="tunnel_on_ethernet">Tunnel su ethernet</string>
     <string name="prominent_background_location_message">Questa caratteristica richiede il permesso di localizzazione in background per abilitare il monitoraggio dell\'SSID delle reti Wi-fi anche quando l\'applicazione è chiusa. Per maggiori dettagli, consultare il link alla Privacy Policy presente nella schermata \"Supporto\".</string>
     <string name="prominent_background_location_title">Permesso localizzazione in background</string>
-    <string name="thank_you">Ti ringrazio per aver scelto di utilizzare WG Tunnel!</string>
+    <string name="thank_you">Ti ringrazio per aver scelto di utilizzare WireguardXT!</string>
     <string name="trusted_ssid_value_description">Invia SSID</string>
     <string name="add_tunnels_text">Importa da file o zip</string>
     <string name="add_from_qr">Scansiona QR code</string>

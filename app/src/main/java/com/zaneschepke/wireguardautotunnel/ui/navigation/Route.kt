@@ -158,6 +158,9 @@ sealed class Route : NavKey {
     @Keep @Serializable data object Monitoring : Route()
 
     @Keep @Serializable data object TunnelRecovery : Route()
+
+    // WireguardXT server watchdog (IP auto update + outage auto-pause)
+    @Keep @Serializable data object ServerWatchdog : Route()
 }
 
 @Serializable
@@ -216,6 +219,7 @@ enum class Tab(
                 Route.Security,
                 Route.Monitoring,
                 Route.TunnelRecovery,
+                Route.ServerWatchdog,
                 Route.Logs -> SETTINGS
                 is Route.Support,
                 Route.License,

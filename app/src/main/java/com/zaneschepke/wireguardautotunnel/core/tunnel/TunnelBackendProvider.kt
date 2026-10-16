@@ -65,4 +65,14 @@ class TunnelBackendProvider(
     override suspend fun updateTunnel(tunnel: Tunnel): Result<Unit> {
         return backend.updateTunnel(tunnel)
     }
+
+    override suspend fun bounceTunnel(tunnelId: Int, withFreshResolution: Boolean): Boolean {
+        return try {
+            backend.bounceTunnelDevice(tunnelId, withFreshResolution)
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            false
+        }
+    }
 }

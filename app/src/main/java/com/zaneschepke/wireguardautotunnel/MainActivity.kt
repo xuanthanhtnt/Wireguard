@@ -126,6 +126,7 @@ import com.zaneschepke.wireguardautotunnel.ui.screens.settings.logs.LogsScreen
 import com.zaneschepke.wireguardautotunnel.ui.screens.settings.monitoring.MonitoringScreen
 import com.zaneschepke.wireguardautotunnel.ui.screens.settings.proxy.ProxySettingsScreen
 import com.zaneschepke.wireguardautotunnel.ui.screens.settings.recovery.TunnelRecoveryScreen
+import com.zaneschepke.wireguardautotunnel.ui.screens.settings.watchdog.ServerWatchdogScreen
 import com.zaneschepke.wireguardautotunnel.ui.screens.settings.security.SecurityScreen
 import com.zaneschepke.wireguardautotunnel.ui.screens.support.SupportScreen
 import com.zaneschepke.wireguardautotunnel.ui.screens.support.donate.DonateScreen
@@ -744,6 +745,9 @@ class MainActivity : AppCompatActivity() {
                                                 entry<Route.Monitoring> { MonitoringScreen() }
                                                 entry<Route.TunnelRecovery> {
                                                     TunnelRecoveryScreen()
+                                                }
+                                                entry<Route.ServerWatchdog> {
+                                                    ServerWatchdogScreen()
                                                 }
                                             },
                                     )

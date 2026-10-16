@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">Tunel przez sieć ethernetową</string>
     <string name="prominent_background_location_message">Ta funkcja wymaga pozwolenia na dostęp do lokalizacji w tle, aby włączyć monitorowanie SSID sieci Wi-Fi nawet wtedy, gdy aplikacja jest zamknięta. Więcej szczegółów znajdziesz w polityce prywatności znajdującej się na ekranie Obsługa.</string>
     <string name="prominent_background_location_title">Ujawnienie lokalizacji w tle</string>
-    <string name="thank_you">Dziękujemy za korzystanie z aplikacji WG Tunnel!</string>
+    <string name="thank_you">Dziękujemy za korzystanie z aplikacji WireguardXT!</string>
     <string name="trusted_ssid_value_description">Prześlij SSID</string>
     <string name="add_tunnels_text">Dodaj z pliku lub archiwum ZIP</string>
     <string name="add_from_qr">Dodaj z kodu QR</string>
@@ -463,7 +463,7 @@
     <string name="restore_failed_invalid_file">Przywracanie nie powiodło się. Wybierz prawidłowy plik kopii zapasowej (.sqlite3 lub .sqlite3.aes)</string>
     <string name="error_invalid_config_url">Ten link zwrócił nieprawidłowy plik konfiguracyjny. Upewnij się, że używasz bezpośredniego linku do pobrania</string>
     <string name="local_network_permission_title">Wymagany dostęp do sieci lokalnej</string>
-    <string name="local_network_permission_intro">WG Tunnel potrzebuje dostępu do sieci lokalnej, aby kilka funkcji działało prawidłowo.</string>
+    <string name="local_network_permission_intro">WireguardXT potrzebuje dostępu do sieci lokalnej, aby kilka funkcji działało prawidłowo.</string>
     <string name="local_network_permission_issues_intro">Bez tego uprawnienia mogą wystąpić problemy z:</string>
     <string name="local_network_permission_feature_tunnels">- Problemy z połączeniem z rozdzielonym tunelem LAN lub serwerami hostowanymi w sieci lokalnej.</string>
     <string name="local_network_permission_feature_autotunnel">- Automatyczne tunelowanie i dzielenie funkcji tunelowania.</string>

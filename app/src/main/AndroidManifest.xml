@@ -227,6 +227,19 @@
                       network connectivity monitoring."/>
         </service>
 
+        <!-- WireguardXT: keeps the app alive while a tunnel is paused because its server is down -->
+        <service
+            android:name=".xt.ServerWatchdogService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"
+            android:stopWithTask="false">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                      android:value="While the user's WireGuard server is unreachable (for example after a
+                      power cut) the VPN tunnel is paused so the device keeps internet access. This service
+                      periodically checks the server and restores the VPN tunnel as soon as it is back."/>
+        </service>
+
         <receiver
             android:name=".core.broadcast.RestartReceiver"
             android:enabled="true"

@@ -23,6 +23,7 @@ import com.zaneschepke.wireguardautotunnel.viewmodel.LockdownViewModel
 import com.zaneschepke.wireguardautotunnel.viewmodel.LoggerViewModel
 import com.zaneschepke.wireguardautotunnel.viewmodel.MonitoringViewModel
 import com.zaneschepke.wireguardautotunnel.viewmodel.ProxySettingsViewModel
+import com.zaneschepke.wireguardautotunnel.viewmodel.ServerWatchdogViewModel
 import com.zaneschepke.wireguardautotunnel.viewmodel.SettingsViewModel
 import com.zaneschepke.wireguardautotunnel.viewmodel.SharedAppViewModel
 import com.zaneschepke.wireguardautotunnel.viewmodel.SplitTunnelViewModel
@@ -86,6 +87,7 @@ val appModule = module {
     viewModelOf(::MonitoringViewModel)
     viewModelOf(::ProxySettingsViewModel)
     viewModelOf(::SettingsViewModel)
+    viewModelOf(::ServerWatchdogViewModel)
     viewModelOf(::SharedAppViewModel)
     viewModel { (id: Int) -> SplitTunnelViewModel(get(), get(), get(), id) }
     viewModel { SupportViewModel(get(), get(), get()) }

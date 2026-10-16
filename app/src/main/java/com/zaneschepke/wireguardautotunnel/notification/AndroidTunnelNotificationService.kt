@@ -160,6 +160,12 @@ class AndroidTunnelNotificationService(private val notificationService: Notifica
                             R.string.notification_source_format,
                             context.getString(R.string.notification_connection_auto),
                         )
+                TunnelActionSource.WATCHDOG ->
+                    parts +=
+                        context.getString(
+                            R.string.notification_source_format,
+                            context.getString(R.string.xt_notification_connection_watchdog),
+                        )
                 null -> Unit
             }
         }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">WG Tunnel</string>
+    <string name="app_name" translatable="false">WireguardXT</string>
     <string name="app_permission_title">Control tunnels and auto-tunnel features.</string>
     <string name="app_permission_description">Control tunnels and auto-tunnel features.</string>
     <string name="vpn_channel_id" translatable="false">VPN Channel</string>
@@ -25,7 +25,7 @@
     <string name="tunnel_on_ethernet">Tunnel on ethernet</string>
     <string name="prominent_background_location_message">This feature requires background location permission to enable Wi-Fi SSID monitoring even while the application is closed. For more details, please see the Privacy Policy linked on the Support screen.</string>
     <string name="prominent_background_location_title">Background Location Disclosure</string>
-    <string name="thank_you">Thank you for using WG Tunnel!</string>
+    <string name="thank_you">Thank you for using WireguardXT!</string>
     <string name="trusted_ssid_value_description">Submit SSID</string>
     <string name="add_tunnels_text">Add from file or zip</string>
     <string name="add_from_qr">Add from QR code</string>
@@ -598,7 +598,7 @@
 
     <string name="local_network_permission_title">Local Network Access Needed</string>
 
-    <string name="local_network_permission_intro">WG Tunnel needs access to your local network for several features to work properly.</string>
+    <string name="local_network_permission_intro">WireguardXT needs access to your local network for several features to work properly.</string>
 
     <string name="local_network_permission_issues_intro">Without this permission, you may experience issues with:</string>
 
@@ -726,4 +726,94 @@
     </plurals>
     <string name="socks5" translatable="false">SOCKS5</string>
     <string name="http" translatable="false">HTTP</string>
+
+    <!-- ===================== WireguardXT: server watchdog ===================== -->
+    <string name="xt_group_label" translatable="false">WireguardXT</string>
+    <string name="xt_watchdog_title">Server watchdog</string>
+    <string name="xt_watchdog_entry_desc">Auto-update the server IP and pause the VPN while the server is down</string>
+    <string name="xt_notification_connection_watchdog">WireguardXT watchdog</string>
+
+    <string name="xt_group_ip_watch">Server IP</string>
+    <string name="xt_ip_watch">Auto-update server IP</string>
+    <string name="xt_ip_watch_desc">Regularly looks up the server address (DDNS) outside the tunnel. When the server restarts with a new IP, the tunnel is moved to it automatically.</string>
+    <string name="xt_ip_watch_interval">Check every</string>
+    <string name="xt_use_doh">Also check with DNS-over-HTTPS</string>
+    <string name="xt_use_doh_desc">When the server cannot be reached, also asks Cloudflare/Google directly, so a stale DNS cache on the phone cannot keep the tunnel on an old IP</string>
+
+    <string name="xt_group_sources">IP source per tunnel</string>
+    <string name="xt_no_tunnels">No tunnels yet</string>
+    <string name="xt_source_no_endpoint">No endpoint in this config</string>
+    <string name="xt_source_hostname">Watching hostname: %1$s</string>
+    <string name="xt_source_static_unset">Fixed IP %1$s. Tap to add a DDNS name or URL so the IP can be updated</string>
+    <string name="xt_source_static_set">Fixed IP, updated from: %1$s</string>
+    <string name="xt_source_resolved">Resolved: %1$s (in use: %2$s)</string>
+    <string name="xt_source_changed">IP changed: %1$s → %2$s</string>
+    <string name="xt_source_lookup_error">Lookup failed: %1$s</string>
+    <string name="xt_source_dialog_title">IP source for %1$s</string>
+    <string name="xt_source_dialog_body">Used when the tunnel endpoint is a plain IP address. Enter the server\'s DDNS name (e.g. myhome.duckdns.org) or an http(s) URL that returns the server\'s current IP. When it points to a new IP, WireguardXT rewrites the endpoint in this config. Leave empty to turn off.</string>
+    <string name="xt_source_dialog_label">DDNS name or URL</string>
+    <string name="xt_source_dialog_hint">myhome.duckdns.org</string>
+
+    <string name="xt_group_outage">When the server is down</string>
+    <string name="xt_auto_pause">Pause VPN while server is down</string>
+    <string name="xt_auto_pause_desc">If the server stops answering (e.g. power cut) while your internet works, the VPN is turned off temporarily so you stay online, and turned back on when the server returns.</string>
+    <string name="xt_pause_after">Pause after</string>
+    <string name="xt_pause_after_desc">How long handshakes must fail before pausing</string>
+    <string name="xt_probe_interval">Re-check server every</string>
+    <string name="xt_probe_interval_desc">While paused, how often to check whether the server is back</string>
+    <string name="xt_probe_method">Check method</string>
+    <string name="xt_probe_method_handshake">Test connection</string>
+    <string name="xt_probe_method_ping">Ping server</string>
+    <string name="xt_probe_method_handshake_desc">Briefly turns the VPN on and waits for a handshake. Most reliable; internet pauses for a few seconds on each check.</string>
+    <string name="xt_probe_method_ping_desc">Pings the server (or connects to a TCP port) without touching the VPN. The server or router must answer ping / have that port open.</string>
+    <string name="xt_probe_tcp_port">TCP port to check</string>
+    <string name="xt_probe_tcp_port_none">Not set, using ICMP ping</string>
+    <string name="xt_probe_tcp_port_value">Port %1$d</string>
+    <string name="xt_probe_tcp_port_dialog_body">Optional. A TCP port that is open on the server or router when it is running (e.g. 443 or 8443). Leave empty to use ICMP ping.</string>
+    <string name="xt_trial_timeout">Handshake wait</string>
+    <string name="xt_trial_timeout_desc">How long a test connection waits for the server</string>
+    <string name="xt_suspend_kill_switch">Lift kill switch while paused</string>
+    <string name="xt_suspend_kill_switch_desc">Lockdown mode only: temporarily allows traffic outside the VPN while the server is down. It is turned back on when the VPN resumes.</string>
+    <string name="xt_notify_events">Notify about changes</string>
+    <string name="xt_notify_events_desc">Show a notification when the IP is updated or the VPN resumes</string>
+    <string name="xt_battery_title">Allow unrestricted background use</string>
+    <string name="xt_battery_desc">Needed so WireguardXT can keep checking the server and reconnect on its own while the VPN is paused. Tap to allow.</string>
+    <string name="xt_proxy_mode_note">Auto-pause only applies in VPN and Lockdown modes.</string>
+    <string name="xt_always_on_note">Note: if Android\'s \"Always-on VPN\" with \"Block connections without VPN\" is enabled for this app, Android itself blocks internet while the VPN is paused.</string>
+
+    <string name="xt_group_history">History</string>
+    <string name="xt_history_empty">Nothing yet</string>
+    <string name="xt_clear_history">Clear</string>
+
+    <string name="xt_status_ok">Watching your servers</string>
+    <string name="xt_status_disabled">Watchdog is off</string>
+    <string name="xt_status_paused">VPN “%1$s” paused: server not responding</string>
+    <string name="xt_status_paused_detail">Since %1$s • checks so far: %2$d</string>
+    <string name="xt_status_next_probe">Next check at %1$s</string>
+    <string name="xt_status_failing">Server of “%1$s” not answering since %2$s</string>
+    <string name="xt_status_failing_detail">The VPN will be paused if it does not recover within %1$s</string>
+    <string name="xt_status_last_ip_check">Last IP check: %1$s</string>
+
+    <string name="xt_action_check_now">Check now</string>
+    <string name="xt_action_reconnect_now">Reconnect now</string>
+    <string name="xt_action_stop_waiting">Stop waiting</string>
+
+    <string name="xt_event_ip_changed">%1$s: %2$s changed IP %3$s → %4$s</string>
+    <string name="xt_event_config_saved">%1$s: new IP saved to the config</string>
+    <string name="xt_event_lookup_failed">%1$s: could not look up %2$s (%3$s)</string>
+    <string name="xt_event_paused">%1$s: server not responding, VPN paused to keep internet working</string>
+    <string name="xt_event_resumed">%1$s: server is back, VPN reconnected (was paused %2$d min)</string>
+    <string name="xt_event_pause_cancelled">Stopped waiting for the server</string>
+    <string name="xt_event_pause_taken_over">A tunnel was started manually, pause ended</string>
+    <string name="xt_event_pause_tunnel_missing">The paused tunnel no longer exists</string>
+
+    <string name="xt_notif_paused_title">VPN paused: server not responding</string>
+    <string name="xt_notif_paused_text">The server of “%1$s” is unreachable (power cut or restart?). The VPN is off so your internet keeps working, and it will reconnect automatically when the server is back.</string>
+    <string name="xt_notif_waiting_text">Waiting for the VPN server to come back</string>
+    <string name="xt_notif_resumed_title">VPN reconnected</string>
+    <string name="xt_notif_ip_updated_title">Server IP updated</string>
+    <string name="xt_notif_ip_updated_text">%1$s now connects to %2$s</string>
+
+    <string name="xt_seconds_fmt">%1$d s</string>
+    <string name="xt_minutes_fmt">%1$d min</string>
 </resources>

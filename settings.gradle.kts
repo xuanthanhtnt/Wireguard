@@ -19,7 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "WG Tunnel"
+rootProject.name = "WireguardXT"
 
 // Local dev
 // includeBuild("../core") {

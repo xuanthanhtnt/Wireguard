@@ -1,0 +1,96 @@
+name: Build WireguardXT APK
+
+# Builds a signed release APK on every push to main, on version tags (v1.0.0 ...) and on demand.
+# Tags also publish a GitHub Release with the APK files attached.
+#
+# Optional repository secrets (Settings > Secrets and variables > Actions) for a stable signing key,
+# so new versions install over old ones without losing data:
+#   KEYSTORE_BASE64        base64 of your .jks file
+#   SIGNING_STORE_PASSWORD keystore password
+#   SIGNING_KEY_ALIAS      key alias
+#   SIGNING_KEY_PASSWORD   key password
+# Without them a temporary key is generated for each build (fine for testing, but every new build
+# must then be installed after uninstalling the previous one).
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      KEY_STORE_PATH: ${{ github.workspace }}/app/keystore/wireguardxt.jks
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read JDK version
+        id: jdk
+        run: |
+          JDK_VERSION=$(sed -nE 's/^jdk[[:space:]]*=[[:space:]]*"([0-9]+)".*/\1/p' gradle/libs.versions.toml)
+          echo "version=${JDK_VERSION:-21}" >> "$GITHUB_OUTPUT"
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ steps.jdk.outputs.version }}
+          cache: gradle
+
+      - name: Prepare signing key
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          SECRET_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SECRET_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SECRET_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+        run: |
+          mkdir -p app/keystore
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > "$KEY_STORE_PATH"
+            echo "SIGNING_STORE_PASSWORD=$SECRET_STORE_PASSWORD" >> "$GITHUB_ENV"
+            echo "SIGNING_KEY_ALIAS=$SECRET_KEY_ALIAS" >> "$GITHUB_ENV"
+            echo "SIGNING_KEY_PASSWORD=$SECRET_KEY_PASSWORD" >> "$GITHUB_ENV"
+            echo "Using signing key from repository secrets"
+          else
+            PASS=$(openssl rand -hex 16)
+            keytool -genkeypair -v -keystore "$KEY_STORE_PATH" -storepass "$PASS" -keypass "$PASS" \
+              -alias wireguardxt -keyalg RSA -keysize 4096 -validity 10000 \
+              -dname "CN=WireguardXT, O=WireguardXT, C=VN"
+            echo "SIGNING_STORE_PASSWORD=$PASS" >> "$GITHUB_ENV"
+            echo "SIGNING_KEY_ALIAS=wireguardxt" >> "$GITHUB_ENV"
+            echo "SIGNING_KEY_PASSWORD=$PASS" >> "$GITHUB_ENV"
+            echo "::warning::No KEYSTORE_BASE64 secret: signed with a temporary key. Uninstall the previous build before installing this one, or add the signing secrets."
+          fi
+
+      - name: Build release APK (fdroid flavor, no self-update)
+        run: |
+          chmod +x gradlew
+          ./gradlew :app:assembleFdroidRelease --stacktrace
+
+      - name: Collect APKs
+        run: |
+          mkdir -p dist
+          find app/build/outputs/apk -name "*.apk" -exec cp {} dist/ \;
+          ls -la dist
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: WireguardXT-apk
+          path: dist/*.apk
+          if-no-files-found: error
+
+      - name: Publish GitHub release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.apk
+          generate_release_notes: true

@@ -3,6 +3,7 @@ package com.zaneschepke.wireguardautotunnel.core.orchestration
 import com.zaneschepke.wireguardautotunnel.domain.repository.AppStateRepository
 import com.zaneschepke.wireguardautotunnel.domain.repository.GeneralSettingRepository
 import com.zaneschepke.wireguardautotunnel.domain.repository.TunnelRepository
+import com.zaneschepke.wireguardautotunnel.xt.XtPauseGate
 import kotlinx.coroutines.flow.first
 import timber.log.Timber
 
@@ -95,6 +96,10 @@ class StartupCoordinator(
         val settings = settingsRepository.getGeneralSettings()
         if (!settings.isAlwaysOnVpnEnabled) {
             Timber.d("Always-On trigger ignored: support is disabled")
+            return
+        }
+        if (XtPauseGate.paused) {
+            Timber.d("Always-On trigger ignored: WireguardXT paused the tunnel, server is down")
             return
         }
 

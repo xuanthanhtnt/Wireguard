@@ -59,6 +59,7 @@ import com.zaneschepke.wireguardautotunnel.ui.navigation.Route.Notifications
 import com.zaneschepke.wireguardautotunnel.ui.navigation.Route.PreferredTunnel
 import com.zaneschepke.wireguardautotunnel.ui.navigation.Route.ProxySettings
 import com.zaneschepke.wireguardautotunnel.ui.navigation.Route.Security
+import com.zaneschepke.wireguardautotunnel.ui.navigation.Route.ServerWatchdog
 import com.zaneschepke.wireguardautotunnel.ui.navigation.Route.Settings
 import com.zaneschepke.wireguardautotunnel.ui.navigation.Route.SplitTunnel
 import com.zaneschepke.wireguardautotunnel.ui.navigation.Route.SplitTunnelGlobal
@@ -586,6 +587,13 @@ fun currentRouteAsNavbarState(
                     NavbarState(
                         topLeading = { TvBackButton { navController.pop() } },
                         topTitle = context.getString(R.string.monitoring),
+                        showBottomItems = true,
+                    )
+                }
+                is ServerWatchdog -> {
+                    NavbarState(
+                        topLeading = { TvBackButton { navController.pop() } },
+                        topTitle = context.getString(R.string.xt_watchdog_title),
                         showBottomItems = true,
                     )
                 }

@@ -8,6 +8,13 @@ import com.zaneschepke.wireguardautotunnel.core.orchestration.ShortcutCoordinato
 import com.zaneschepke.wireguardautotunnel.core.orchestration.StartupCoordinator
 import com.zaneschepke.wireguardautotunnel.core.orchestration.TunnelBackendCoordinator
 import com.zaneschepke.wireguardautotunnel.core.orchestration.TunnelCoordinator
+import com.zaneschepke.wireguardautotunnel.xt.AndroidXtPlatform
+import com.zaneschepke.wireguardautotunnel.xt.ServerWatchdogCoordinator
+import com.zaneschepke.wireguardautotunnel.xt.XtNetwork
+import com.zaneschepke.wireguardautotunnel.xt.XtNetworkApi
+import com.zaneschepke.wireguardautotunnel.xt.XtPlatform
+import com.zaneschepke.wireguardautotunnel.xt.XtSettingsRepository
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.singleOf
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -36,4 +43,23 @@ val coordinatorModule = module {
         )
     }
     singleOf(::AppBoostrapCoordinator)
+
+    // WireguardXT server watchdog
+    single { XtSettingsRepository(get()) }
+    single<XtNetworkApi> { XtNetwork(androidContext(), get()) }
+    single<XtPlatform> { AndroidXtPlatform(androidContext(), get()) }
+    single {
+        ServerWatchdogCoordinator(
+            tunnelCoordinator = get(),
+            tunnelProvider = get(),
+            tunnelRepository = get(),
+            settingsRepository = get(),
+            lockdownRepository = get(),
+            xtRepository = get(),
+            xtNetwork = get(),
+            notificationService = get(),
+            platform = get(),
+            scope = get(named(Scope.APPLICATION)),
+        )
+    }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Themed (monochrome) launcher layer for Android 13+ -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:pivotX="54"
+        android:pivotY="54.5"
+        android:scaleX="1.1"
+        android:scaleY="1.1">
+        <path
+            android:pathData="M54,29 L75,35.9 L75,53.5 C75,66 66.3,75.3 54,80.4 C41.7,75.3 33,66 33,53.5 L33,35.9 Z"
+            android:strokeWidth="3.4"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeLineJoin="round" />
+        <path
+            android:pathData="M37.5,56 L44.5,56 L48.5,46.5 L54,66 L58.5,50.5 L61.5,56 L70.5,56"
+            android:strokeWidth="3.6"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+    </group>
+</vector>

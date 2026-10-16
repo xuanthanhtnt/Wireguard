@@ -6,7 +6,7 @@
     <string name="okay">Dobre</string>
     <string name="prominent_background_location_message">Táto funkcia vyžaduje povolenie na sledovanie polohy na pozadí, aby bolo možné monitorovať Wi-Fi SSID aj v prípade, že je aplikácia zatvorená. Ďalšie informácie nájdete v zásadách ochrany osobných údajov, na ktoré odkazuje obrazovka podpory.</string>
     <string name="prominent_background_location_title">Zverejnenie informácií o polohe</string>
-    <string name="thank_you">Ďakujeme, že používate WG Tunnel!</string>
+    <string name="thank_you">Ďakujeme, že používate WireguardXT!</string>
     <string name="trusted_ssid_value_description">Potvrdiť SSID</string>
     <string name="add_tunnels_text">Pridať zo súboru alebo zip</string>
     <string name="add_from_qr">Pridať z QR kódu</string>

@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">Loo tunnel kohtvõrgus</string>
     <string name="prominent_background_location_message">See funktsionaalsus eeldab, et rakendusel on õigus asukoha ja WiFi SSID taustal tuvastamiseks, seda ka siis, kui rakendus on suletud. Lisateavet leiad Privaatsusreeglite lehelt, leitav Kasutajatoe vaatest.</string>
     <string name="prominent_background_location_title">Teave taustal asukoha tuvastamise kohta</string>
-    <string name="thank_you">Aitäh, et kasutad WG Tunnel rakendust!</string>
+    <string name="thank_you">Aitäh, et kasutad WireguardXT rakendust!</string>
     <string name="trusted_ssid_value_description">Saada SSID</string>
     <string name="add_tunnels_text">Lisa conf- või zip-failist</string>
     <string name="add_from_qr">Lisa QR-koodist</string>

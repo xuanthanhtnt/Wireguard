@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_permission_title">WG Tunnel Vezérlő Híd.</string>
-    <string name="app_permission_description">WG Tunnel Vezérlő Híd.</string>
+    <string name="app_permission_title">WireguardXT Vezérlő Híd.</string>
+    <string name="app_permission_description">WireguardXT Vezérlő Híd.</string>
     <string name="error_file_extension">A fájl nem .conf vagy .zip</string>
     <string name="tunnels">Alagutak</string>
     <string name="tunnel_mobile_data">Alagút mobiladat-forgalmon</string>
@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">Alagút Etherneten</string>
     <string name="prominent_background_location_message">Ehhez a funkcióhoz háttérben történő helymeghatározási engedély szükséges a Wi-Fi SSID figyeléséhez akkor is, ha az alkalmazás be van zárva. További részletekért tekintse meg az Adatvédelmi nyilatkozatot a Támogatás képernyőn.</string>
     <string name="prominent_background_location_title">Háttérben történő helymeghatározás tájékoztató</string>
-    <string name="thank_you">Köszönjük, hogy a WG Tunnelt használja!</string>
+    <string name="thank_you">Köszönjük, hogy a WireguardXTt használja!</string>
     <string name="trusted_ssid_value_description">SSID beküldése</string>
     <string name="add_tunnels_text">Hozzáadás fájlból vagy zip-ből</string>
     <string name="add_from_qr">Hozzáadás QR-kódból</string>

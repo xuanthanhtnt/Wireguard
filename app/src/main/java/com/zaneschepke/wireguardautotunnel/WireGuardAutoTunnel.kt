@@ -29,6 +29,7 @@ import com.zaneschepke.wireguardautotunnel.di.workerModule
 import com.zaneschepke.wireguardautotunnel.notification.NotificationService
 import com.zaneschepke.wireguardautotunnel.util.Constants
 import com.zaneschepke.wireguardautotunnel.util.ReleaseTree
+import com.zaneschepke.wireguardautotunnel.xt.ServerWatchdogCoordinator
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -126,6 +127,9 @@ class WireGuardAutoTunnel : Application(), KoinComponent {
         applicationScope.launch(ioDispatcher) {
             boostrapCoordinator.bootstrap(this@WireGuardAutoTunnel)
         }
+
+        // WireguardXT: server IP watch + outage auto-pause (waits for bootstrap itself)
+        get<ServerWatchdogCoordinator>().start()
     }
 
     override fun onTrimMemory(level: Int) {

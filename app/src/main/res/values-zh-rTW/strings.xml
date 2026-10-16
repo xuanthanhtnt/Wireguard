@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_permission_title">WG Tunnel Control Bridge</string>
-    <string name="app_permission_description">WG Tunnel Control Bridge</string>
+    <string name="app_permission_title">WireguardXT Control Bridge</string>
+    <string name="app_permission_description">WireguardXT Control Bridge</string>
     <string name="error_file_extension">檔案類型不是 .conf 或 .zip</string>
     <string name="tunnels">隧道清單</string>
     <string name="tunnel_mobile_data">行動數據上的隧道</string>
@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">乙太網路上的隧道</string>
     <string name="prominent_background_location_message">此功能需要背景位置存取權以啟用即使應用程式關閉也會持續執行的 Wi-Fi SSID 自動掃描。如果想知道更多資訊，請參閱支援頁面的隱私政策。</string>
     <string name="prominent_background_location_title">背景定位披露</string>
-    <string name="thank_you">感謝您使用 WG Tunnel！</string>
+    <string name="thank_you">感謝您使用 WireguardXT！</string>
     <string name="trusted_ssid_value_description">提交 SSID</string>
     <string name="add_tunnels_text">從檔案或 zip 壓縮檔新增</string>
     <string name="add_from_qr">從 QR code 新增</string>

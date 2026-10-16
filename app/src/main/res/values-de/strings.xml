@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">Tunnel für Ethernet</string>
     <string name="prominent_background_location_message">Diese Funktion erfordert die Erlaubnis zur Standortbestimmung im Hintergrund, um die Überwachung der WLAN SSID zu ermöglichen, auch wenn die Anwendung geschlossen ist. Weitere Einzelheiten in den Datenschutzbestimmungen, die auf dem Support-Bildschirm verlinkt sind.</string>
     <string name="prominent_background_location_title">Einstellung der Standortberechtigung im Hintergrund</string>
-    <string name="thank_you">Danke für die Nutzung von WG Tunnel!</string>
+    <string name="thank_you">Danke für die Nutzung von WireguardXT!</string>
     <string name="trusted_ssid_value_description">SSID übermitteln</string>
     <string name="add_tunnels_text">Aus Datei oder ZIP hinzufügen</string>
     <string name="add_from_qr">Über QR-Code hinzufügen</string>
@@ -408,7 +408,7 @@
     <string name="restore_failed_invalid_file">Wiederherstellung fehlgeschlagen. Wähle eine gültige Sicherungsdatei (.sqlite3 oder .sqlite3.aes)</string>
     <string name="error_invalid_config_url">Dieser Link hat eine ungültige Konfigurationsdatei zurückgegeben. Stelle sicher, dass du einen direkten Downloadlink verwendest</string>
     <string name="local_network_permission_title">Lokaler Netzwerkzugriff erforderlich</string>
-    <string name="local_network_permission_intro">WG Tunnel benötigt Zugriff auf das lokale Netzwerk, damit mehrere Funktionen richtig funktionieren.</string>
+    <string name="local_network_permission_intro">WireguardXT benötigt Zugriff auf das lokale Netzwerk, damit mehrere Funktionen richtig funktionieren.</string>
     <string name="local_network_permission_issues_intro">Ohne diese Berechtigung können folgende Probleme auftreten:</string>
     <string name="local_network_permission_feature_tunnels">- Verbindungsprobleme mit Split-Tunneln, bei LAN-Umgehung oder bei Servern im lokalen Netzwerk</string>
     <string name="local_network_permission_feature_autotunnel">- Auto-Tunneling und Split-Tunneling-Funktionen</string>

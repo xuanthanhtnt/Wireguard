@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">Тунелювати Ethernet</string>
     <string name="prominent_background_location_message">Дана функція потребує фоновий доступ до служби геолокації для моніторингу назви мереж Wi-Fi навіть коли додаток закрито. Для отримання додаткової інформації прочитайте політику приватності на екрані Підтримки.</string>
     <string name="prominent_background_location_title">Фонова передача геолокації</string>
-    <string name="thank_you">Спасибі за використання WG Tunnel!</string>
+    <string name="thank_you">Спасибі за використання WireguardXT!</string>
     <string name="trusted_ssid_value_description">Підтвердити SSID</string>
     <string name="add_tunnels_text">Додати з файлу або архіву</string>
     <string name="add_from_qr">Додати з QR коду</string>

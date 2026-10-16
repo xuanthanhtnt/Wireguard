@@ -5,7 +5,7 @@
     <string name="privacy_policy">Näytä tietosuojakäytäntö</string>
     <string name="okay">Okei</string>
     <string name="prominent_background_location_message">Tämä toiminto vaatii taustapaikannusoikeuden, jotta Wi-Fi SSID:n seuranta on mahdollista myös sovelluksen ollessa suljettuna. Lisätietoja löydät Tuki-näkymään linkatusta tietosuojakäytännöstä.</string>
-    <string name="thank_you">Kiitos WG Tunnelin käyttämisestä!</string>
+    <string name="thank_you">Kiitos WireguardXTin käyttämisestä!</string>
     <string name="trusted_ssid_value_description">Tallenna SSID</string>
     <string name="add_tunnels_text">Lisää tiedostosta tai zip-arkistosta</string>
     <string name="add_from_qr">Lisää QR-koodilla</string>

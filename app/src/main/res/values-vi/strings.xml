@@ -8,7 +8,7 @@
     <string name="privacy_policy">Chính sách quyền riêng tư</string>
     <string name="prominent_background_location_message">Tính năng này yêu cầu quyền truy cập vị trí nền (background location permission) để có thể giám sát SSID Wi-Fi ngay cả khi ứng dụng đang đóng. Để biết thêm chi tiết, vui lòng xem Chính sách quyền riêng tư được liên kết trên màn hình Hỗ trợ.</string>
     <string name="prominent_background_location_title">Tiết lộ quyền truy cập vị trí nền</string>
-    <string name="thank_you">Cảm ơn vì đã sử dụng WG Tunnel!</string>
+    <string name="thank_you">Cảm ơn vì đã sử dụng WireguardXT!</string>
     <string name="trusted_ssid_value_description">Gửi SSID</string>
     <string name="add_tunnels_text">Thêm từ tệp hoặc tệp zip</string>
     <string name="add_from_qr">Thêm từ mã QR</string>
@@ -30,4 +30,93 @@
     <string name="live_updates_desc">Hiển thị tiến trình và trạng thái kết nối của đường nối đang hoạt động trên thanh trạng thái và màn hình khóa. Áp dụng khi chỉ có một đường nối đang chạy</string>
     <string name="notification_connection_manual">Kết nối thủ công</string>
     <string name="notification_connection_auto">Đường nối tự động</string>
+
+    <!-- ===================== WireguardXT: giám sát máy chủ ===================== -->
+    <string name="xt_watchdog_title">Giám sát máy chủ</string>
+    <string name="xt_watchdog_entry_desc">Tự cập nhật IP máy chủ và tạm ngắt VPN khi máy chủ mất điện</string>
+    <string name="xt_notification_connection_watchdog">WireguardXT tự động</string>
+
+    <string name="xt_group_ip_watch">IP máy chủ</string>
+    <string name="xt_ip_watch">Tự cập nhật IP máy chủ</string>
+    <string name="xt_ip_watch_desc">Định kỳ tra cứu địa chỉ máy chủ (DDNS) bên ngoài tunnel. Khi máy chủ khởi động lại và nhận IP mới, tunnel sẽ tự chuyển sang IP mới.</string>
+    <string name="xt_ip_watch_interval">Kiểm tra mỗi</string>
+    <string name="xt_use_doh">Kiểm tra thêm qua DNS-over-HTTPS</string>
+    <string name="xt_use_doh_desc">Khi không liên lạc được máy chủ, hỏi thêm trực tiếp Cloudflare/Google để bộ nhớ đệm DNS cũ trên máy không giữ tunnel ở IP cũ</string>
+
+    <string name="xt_group_sources">Nguồn IP theo từng tunnel</string>
+    <string name="xt_no_tunnels">Chưa có tunnel nào</string>
+    <string name="xt_source_no_endpoint">Cấu hình này không có Endpoint</string>
+    <string name="xt_source_hostname">Đang theo dõi tên miền: %1$s</string>
+    <string name="xt_source_static_unset">IP cố định %1$s. Chạm để thêm tên miền DDNS hoặc URL để có thể tự cập nhật IP</string>
+    <string name="xt_source_static_set">IP cố định, cập nhật theo: %1$s</string>
+    <string name="xt_source_resolved">Phân giải: %1$s (đang dùng: %2$s)</string>
+    <string name="xt_source_changed">IP đã đổi: %1$s → %2$s</string>
+    <string name="xt_source_lookup_error">Tra cứu thất bại: %1$s</string>
+    <string name="xt_source_dialog_title">Nguồn IP cho %1$s</string>
+    <string name="xt_source_dialog_body">Dùng khi Endpoint của tunnel là địa chỉ IP. Nhập tên miền DDNS của máy chủ (vd: nhacuatoi.duckdns.org) hoặc một URL http(s) trả về IP hiện tại của máy chủ. Khi nguồn này trỏ tới IP mới, WireguardXT sẽ sửa lại Endpoint trong cấu hình. Để trống để tắt.</string>
+    <string name="xt_source_dialog_label">Tên miền DDNS hoặc URL</string>
+    <string name="xt_source_dialog_hint">nhacuatoi.duckdns.org</string>
+
+    <string name="xt_group_outage">Khi máy chủ mất kết nối</string>
+    <string name="xt_auto_pause">Tạm ngắt VPN khi máy chủ không phản hồi</string>
+    <string name="xt_auto_pause_desc">Nếu máy chủ ngừng phản hồi (vd: cúp điện) trong khi Internet của máy vẫn tốt, VPN sẽ tạm tắt để bạn không mất Internet, và tự bật lại khi máy chủ hoạt động trở lại.</string>
+    <string name="xt_pause_after">Tạm ngắt sau</string>
+    <string name="xt_pause_after_desc">Thời gian bắt tay thất bại liên tục trước khi tạm ngắt</string>
+    <string name="xt_probe_interval">Kiểm tra lại máy chủ mỗi</string>
+    <string name="xt_probe_interval_desc">Khi đang tạm ngắt, bao lâu kiểm tra máy chủ một lần</string>
+    <string name="xt_probe_method">Cách kiểm tra</string>
+    <string name="xt_probe_method_handshake">Thử kết nối VPN</string>
+    <string name="xt_probe_method_ping">Ping máy chủ</string>
+    <string name="xt_probe_method_handshake_desc">Bật VPN trong giây lát và chờ bắt tay. Chính xác nhất; mỗi lần kiểm tra Internet sẽ gián đoạn vài giây.</string>
+    <string name="xt_probe_method_ping_desc">Ping máy chủ (hoặc kết nối tới một cổng TCP) mà không bật VPN. Máy chủ/router phải trả lời ping hoặc mở cổng đó.</string>
+    <string name="xt_probe_tcp_port">Cổng TCP để kiểm tra</string>
+    <string name="xt_probe_tcp_port_none">Chưa đặt, dùng ping ICMP</string>
+    <string name="xt_probe_tcp_port_value">Cổng %1$d</string>
+    <string name="xt_probe_tcp_port_dialog_body">Không bắt buộc. Một cổng TCP luôn mở trên máy chủ hoặc router khi đang chạy (vd: 443 hoặc 8443). Để trống để dùng ping ICMP.</string>
+    <string name="xt_trial_timeout">Thời gian chờ bắt tay</string>
+    <string name="xt_trial_timeout_desc">Mỗi lần thử kết nối sẽ chờ máy chủ trong bao lâu</string>
+    <string name="xt_suspend_kill_switch">Tạm bỏ Kill switch khi đang ngắt</string>
+    <string name="xt_suspend_kill_switch_desc">Chỉ với chế độ Lockdown: tạm cho phép truy cập ngoài VPN khi máy chủ mất kết nối. Kill switch sẽ bật lại khi VPN kết nối lại.</string>
+    <string name="xt_notify_events">Thông báo khi có thay đổi</string>
+    <string name="xt_notify_events_desc">Hiện thông báo khi IP được cập nhật hoặc VPN kết nối lại</string>
+    <string name="xt_battery_title">Cho phép chạy nền không giới hạn</string>
+    <string name="xt_battery_desc">Cần thiết để WireguardXT tiếp tục kiểm tra máy chủ và tự kết nối lại khi VPN đang tạm ngắt. Chạm để cho phép.</string>
+    <string name="xt_proxy_mode_note">Tự tạm ngắt chỉ áp dụng cho chế độ VPN và Lockdown.</string>
+    <string name="xt_always_on_note">Lưu ý: nếu trong cài đặt Android đã bật \"VPN luôn bật\" kèm \"Chặn kết nối không dùng VPN\" cho ứng dụng này, Android sẽ tự chặn Internet khi VPN đang tạm ngắt.</string>
+
+    <string name="xt_group_history">Nhật ký</string>
+    <string name="xt_history_empty">Chưa có sự kiện nào</string>
+    <string name="xt_clear_history">Xóa</string>
+
+    <string name="xt_status_ok">Đang giám sát máy chủ</string>
+    <string name="xt_status_disabled">Đã tắt giám sát</string>
+    <string name="xt_status_paused">Đã tạm ngắt VPN “%1$s”: máy chủ không phản hồi</string>
+    <string name="xt_status_paused_detail">Từ %1$s • đã kiểm tra: %2$d lần</string>
+    <string name="xt_status_next_probe">Lần kiểm tra tiếp theo lúc %1$s</string>
+    <string name="xt_status_failing">Máy chủ của “%1$s” không phản hồi từ %2$s</string>
+    <string name="xt_status_failing_detail">VPN sẽ được tạm ngắt nếu không phục hồi trong %1$s</string>
+    <string name="xt_status_last_ip_check">Kiểm tra IP gần nhất: %1$s</string>
+
+    <string name="xt_action_check_now">Kiểm tra ngay</string>
+    <string name="xt_action_reconnect_now">Kết nối lại ngay</string>
+    <string name="xt_action_stop_waiting">Hủy chờ</string>
+
+    <string name="xt_event_ip_changed">%1$s: %2$s đổi IP %3$s → %4$s</string>
+    <string name="xt_event_config_saved">%1$s: đã lưu IP mới vào cấu hình</string>
+    <string name="xt_event_lookup_failed">%1$s: không tra cứu được %2$s (%3$s)</string>
+    <string name="xt_event_paused">%1$s: máy chủ không phản hồi, đã tạm ngắt VPN để giữ Internet</string>
+    <string name="xt_event_resumed">%1$s: máy chủ đã hoạt động lại, VPN đã kết nối lại (tạm ngắt %2$d phút)</string>
+    <string name="xt_event_pause_cancelled">Đã hủy chờ máy chủ</string>
+    <string name="xt_event_pause_taken_over">Tunnel được bật thủ công, kết thúc tạm ngắt</string>
+    <string name="xt_event_pause_tunnel_missing">Tunnel đang tạm ngắt không còn tồn tại</string>
+
+    <string name="xt_notif_paused_title">Đã tạm ngắt VPN: máy chủ không phản hồi</string>
+    <string name="xt_notif_paused_text">Máy chủ của “%1$s” không liên lạc được (cúp điện hoặc đang khởi động lại?). VPN đã tắt để Internet vẫn hoạt động và sẽ tự kết nối lại khi máy chủ có điện trở lại.</string>
+    <string name="xt_notif_waiting_text">Đang chờ máy chủ VPN hoạt động trở lại</string>
+    <string name="xt_notif_resumed_title">VPN đã kết nối lại</string>
+    <string name="xt_notif_ip_updated_title">Đã cập nhật IP máy chủ</string>
+    <string name="xt_notif_ip_updated_text">%1$s giờ kết nối tới %2$s</string>
+
+    <string name="xt_seconds_fmt">%1$d giây</string>
+    <string name="xt_minutes_fmt">%1$d phút</string>
 </resources>

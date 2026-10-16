@@ -241,7 +241,7 @@ fun List<TunnelConfig>.asFileExportName(): Pair<String, String> {
         val tunnel = first()
         "${tunnel.name}.conf" to FileUtils.ALL_FILE_TYPES
     } else {
-        "wgtunnel_export_${Instant.now().toUserFriendlyTimestamp()}.zip" to
+        "wgvpn_export_${Instant.now().toUserFriendlyTimestamp()}.zip" to
             FileUtils.ZIP_FILE_MIME_TYPE
     }
 }

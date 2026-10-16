@@ -129,8 +129,6 @@ import com.zaneschepke.wireguardautotunnel.ui.screens.settings.recovery.TunnelRe
 import com.zaneschepke.wireguardautotunnel.ui.screens.settings.watchdog.ServerWatchdogScreen
 import com.zaneschepke.wireguardautotunnel.ui.screens.settings.security.SecurityScreen
 import com.zaneschepke.wireguardautotunnel.ui.screens.support.SupportScreen
-import com.zaneschepke.wireguardautotunnel.ui.screens.support.donate.DonateScreen
-import com.zaneschepke.wireguardautotunnel.ui.screens.support.donate.crypto.AddressesScreen
 import com.zaneschepke.wireguardautotunnel.ui.screens.support.license.LicenseScreen
 import com.zaneschepke.wireguardautotunnel.ui.screens.tunnels.TunnelsScreen
 import com.zaneschepke.wireguardautotunnel.ui.screens.tunnels.settings.TunnelSettingsScreen
@@ -494,42 +492,6 @@ class MainActivity : AppCompatActivity() {
                         )
                     }
 
-                    LaunchedEffect(Unit) {
-                        if (uiState.shouldShowDonationSnackbar && !uiState.alreadyDonated) {
-                            viewModel.setShouldShowDonationSnackbar(false)
-                            toaster.show(
-                                message =
-                                    context.getString(R.string.donation_prompt_prefix) +
-                                        " " +
-                                        context.getString(R.string.donation_prompt_link) +
-                                        " " +
-                                        context.getString(R.string.donation_prompt_suffix),
-                                type = ToastType.Normal,
-                                duration = 30_000L.milliseconds,
-                                action =
-                                    TextToastAction(
-                                        text = context.getString(R.string.donate_title),
-                                        onClick = { toastId ->
-                                            toaster.dismiss(toastId)
-                                            navController.push(Route.Donate)
-                                        },
-                                    ),
-                            )
-                        }
-                    }
-
-                    LaunchedEffect(Unit) {
-                        if (!uiState.isDesktopPromptShown) {
-                            viewModel.setDesktopPromptShown(true)
-                            toaster.show(
-                                message = context.getString(R.string.desktop_prompt_message),
-                                icon = Icons.Outlined.Celebration,
-                                type = ToastType.Normal,
-                                duration = 10_000L.milliseconds,
-                            )
-                        }
-                    }
-
                     val isPinVisible by remember { derivedStateOf { showLock } }
 
                     val currentRoute by remember {
@@ -735,8 +697,6 @@ class MainActivity : AppCompatActivity() {
                                                 entry<Route.Logs> { LogsScreen() }
                                                 entry<Route.Support> { SupportScreen() }
                                                 entry<Route.License> { LicenseScreen() }
-                                                entry<Route.Donate> { DonateScreen() }
-                                                entry<Route.Addresses> { AddressesScreen() }
                                                 entry<Route.PreferredTunnel> { key ->
                                                     PreferredTunnelScreen(key.tunnelNetwork)
                                                 }

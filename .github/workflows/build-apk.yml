@@ -70,10 +70,10 @@ jobs:
             echo "::warning::No KEYSTORE_BASE64 secret: signed with a temporary key. Uninstall the previous build before installing this one, or add the signing secrets."
           fi
 
-      - name: Build release APK (fdroid flavor, no self-update)
+      - name: Build release APK (standalone flavor, updates itself from this repo's releases)
         run: |
           chmod +x gradlew
-          ./gradlew :app:assembleFdroidRelease --stacktrace
+          ./gradlew :app:assembleStandaloneRelease -PbuildNumber=${{ github.run_number }} --stacktrace
 
       - name: Collect APKs
         run: |
@@ -92,7 +92,7 @@ jobs:
         id: ver
         run: |
           V=$(sed -nE 's/^versionName[[:space:]]*=[[:space:]]*"([^"]+)".*/\1/p' gradle/libs.versions.toml)
-          echo "name=${V:-1.0.0}" >> "$GITHUB_OUTPUT"
+          echo "name=${V:-1.0}.${{ github.run_number }}" >> "$GITHUB_OUTPUT"
 
       # Every successful build of main (or a v* tag) becomes a downloadable GitHub Release:
       # https://github.com/<owner>/<repo>/releases/latest
@@ -100,8 +100,8 @@ jobs:
         if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('v{0}-build{1}', steps.ver.outputs.name, github.run_number) }}
-          name: WG VPN ${{ steps.ver.outputs.name }} (build ${{ github.run_number }})
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('v{0}', steps.ver.outputs.name) }}
+          name: WG VPN ${{ steps.ver.outputs.name }}
           target_commitish: ${{ github.sha }}
           files: dist/*.apk
           make_latest: true

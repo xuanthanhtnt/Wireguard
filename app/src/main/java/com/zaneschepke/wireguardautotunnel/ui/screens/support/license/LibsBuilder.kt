@@ -19,6 +19,34 @@ fun buildLibsWithAdditionalLibraries(context: Context): Libs {
 
     val nativeLibraries =
         listOf(
+            // MIT license notice of the Android client WG VPN is derived from
+            Library(
+                uniqueId = "github.com.wgtunnel:android",
+                artifactVersion = "5.8.1",
+                name = "WG Tunnel Android client (base source)",
+                description = "WG VPN is a modified version of this MIT licensed application",
+                website = "https://github.com/wgtunnel/android",
+                developers =
+                    listOf(
+                        Developer(
+                            name = "Zane Schepke",
+                            organisationUrl = "https://github.com/wgtunnel/android",
+                        )
+                    ),
+                organization = null,
+                scm = Scm(null, null, "https://github.com/wgtunnel/android"),
+                licenses =
+                    setOf(
+                        License(
+                            name = "MIT License",
+                            url = "https://opensource.org/licenses/MIT",
+                            spdxId = "MIT",
+                            hash = "mit-license-wgtunnel-android",
+                        )
+                    ),
+                funding = emptySet(),
+                tag = "native",
+            ),
             Library(
                 uniqueId = "github.com.wgtunnel:amneziawg-go",
                 artifactVersion = "v0.0.0-20260618075902-e1b699b2104b",

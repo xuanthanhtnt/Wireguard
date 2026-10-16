@@ -4,11 +4,11 @@ import androidx.annotation.Keep
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.QuestionMark
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.Bolt
 import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.QuestionMark
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Settings
 import androidx.navigation3.runtime.NavKey
 import com.zaneschepke.wireguardautotunnel.R
@@ -142,9 +142,6 @@ sealed class Route : NavKey {
 
     @Keep @Serializable data object LocationDisclosure : Route()
 
-    @Keep @Serializable data object Donate : Route()
-
-    @Keep @Serializable data object Addresses : Route()
 
     @Keep
     @Serializable
@@ -180,13 +177,7 @@ enum class Tab(
     TUNNELS(Route.Tunnels, R.string.tunnels, Icons.Outlined.Home, Icons.Filled.Home, 0),
     AUTOTUNNEL(Route.AutoTunnel, R.string.auto_tunnel, Icons.Outlined.Bolt, Icons.Filled.Bolt, 1),
     SETTINGS(Route.Settings, R.string.settings, Icons.Outlined.Settings, Icons.Filled.Settings, 2),
-    SUPPORT(
-        Route.Support,
-        R.string.support,
-        Icons.Outlined.QuestionMark,
-        Icons.Filled.QuestionMark,
-        3,
-    );
+    SUPPORT(Route.Support, R.string.xt_about_tab, Icons.Outlined.Info, Icons.Filled.Info, 3);
 
     companion object {
         fun fromRoute(route: Route): Tab =
@@ -222,9 +213,7 @@ enum class Tab(
                 Route.ServerWatchdog,
                 Route.Logs -> SETTINGS
                 is Route.Support,
-                Route.License,
-                Route.Donate,
-                Route.Addresses -> SUPPORT
+                Route.License -> SUPPORT
             }
     }
 }

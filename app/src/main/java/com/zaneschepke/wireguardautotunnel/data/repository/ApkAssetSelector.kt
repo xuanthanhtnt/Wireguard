@@ -14,7 +14,7 @@ internal object ApkAssetSelector {
         )
 
     fun select(assets: List<Asset>, flavor: String, supportedAbis: List<String>): ApkChoice? {
-        val prefix = "wgtunnel-$flavor-v"
+        val prefix = "wgvpn-$flavor-v"
         val apks = assets.filter { it.name.startsWith(prefix) && it.name.endsWith(".apk") }
 
         fun suffixOf(asset: Asset): String? =

@@ -15,7 +15,7 @@ object KtorClient {
         return HttpClient(OkHttp) {
             install(DefaultRequest) {
                 headers {
-                    append(HttpHeaders.UserAgent, "wgtunnel/${BuildConfig.VERSION_NAME} (Android)")
+                    append(HttpHeaders.UserAgent, "WGVPN/${BuildConfig.VERSION_NAME} (Android)")
                     append(HttpHeaders.Accept, "*/*")
                 }
             }

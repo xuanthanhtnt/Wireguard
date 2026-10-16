@@ -51,14 +51,18 @@ Mọi sự kiện (đổi IP, tạm ngắt, kết nối lại) được ghi vào
 ## Tải và cài đặt
 
 **Tải APK mới nhất:** https://github.com/xuanthanhtnt/Wireguard/releases/latest
-— chọn `wgvpn-fdroid-v….apk` (dùng cho mọi máy).
+— chọn `wgvpn-standalone-v1.0.N.apk` (dùng cho mọi máy) hoặc bản `-arm64` nhỏ hơn cho máy đời mới.
+
+**Cập nhật trong ứng dụng:** tab *Giới thiệu › Kiểm tra cập nhật* tìm bản mới trên trang Releases của repo này,
+tải đúng file cho máy và mở màn hình cài đặt. Ứng dụng cũng tự kiểm tra mỗi ngày và báo bằng thông báo.
+Mỗi lần build, số phiên bản tự tăng: `1.0.<số build>`.
 
 ### Cách 1 — Build tự động bằng GitHub Actions (không cần cài gì trên máy)
 1. Mỗi lần đẩy mã lên nhánh `main` của repository này, GitHub tự build.
 2. Vào tab **Actions** → workflow **Build WG VPN APK** (hoặc bấm *Run workflow* để build lại).
 3. Sau ~10–15 phút, tải file APK trong mục **Artifacts** của lần chạy đó.
-   - `wgvpn-fdroid-v1.0.0.apk` (universal, dùng cho mọi máy), hoặc bản `-arm64` / `-armv7` nhỏ hơn.
-4. Gắn tag `v1.0.0` (`git tag v1.0.0 && git push --tags`) để tạo bản phát hành (Release) có sẵn APK.
+   - `wgvpn-standalone-v1.0.N.apk` (universal, dùng cho mọi máy), hoặc bản `-arm64` / `-armv7` nhỏ hơn.
+4. Mỗi lần build thành công trên nhánh `main` sẽ tự tạo một bản phát hành (Release) `v1.0.N` kèm APK.
 
 **Khoá ký cố định (nên làm một lần):** để cài bản mới đè lên bản cũ mà không mất dữ liệu, tạo khoá ký:
 ```bash
@@ -70,14 +74,14 @@ Rồi thêm vào *Settings › Secrets and variables › Actions*: `KEYSTORE_BAS
 
 ### Cách 2 — Build bằng Android Studio
 - Mở thư mục dự án bằng Android Studio (bản mới nhất), JDK 21.
-- Bản thử: chọn biến thể `fdroidDebug` → Run (ứng dụng tên *WG VPN Debug*).
+- Bản thử: chọn biến thể `standaloneDebug` → Run (ứng dụng tên *WG VPN Debug*).
 - Bản phát hành: tạo `app/keystore/wgvpn.jks` và khai báo trong `local.properties`:
   ```properties
   SIGNING_STORE_PASSWORD=...
   SIGNING_KEY_ALIAS=wgvpn
   SIGNING_KEY_PASSWORD=...
   ```
-  rồi chạy `./gradlew :app:assembleFdroidRelease`.
+  rồi chạy `./gradlew :app:assembleStandaloneRelease -PbuildNumber=1`.
 
 Yêu cầu: Android 8.0 (API 26) trở lên. Mã ứng dụng: `com.wgvpn.app` — cài song song được với WG Tunnel.
 

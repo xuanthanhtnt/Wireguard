@@ -58,8 +58,11 @@ configure<ApplicationExtension> {
         applicationId = Constants.APPLICATION_ID
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = libs.versions.versionCode.get().toInt()
-        versionName = libs.versions.versionName.get()
+        // WG VPN: CI passes -PbuildNumber=<run number>, giving versions 1.0.<build> that the
+        // in-app updater can compare. Local builds without it are 1.0.0.
+        val buildNumber = providers.gradleProperty("buildNumber").orNull?.toIntOrNull() ?: 0
+        versionCode = libs.versions.versionCode.get().toInt() + buildNumber
+        versionName = "${libs.versions.versionName.get()}.$buildNumber"
 
         experimentalProperties["android.experimental.disableGitVersion"] = true
 

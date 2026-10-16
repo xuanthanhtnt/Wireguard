@@ -5,12 +5,12 @@
     <string name="app_permission_description">Control tunnels and auto-tunnel features.</string>
     <string name="vpn_channel_id" translatable="false">VPN Channel</string>
     <string name="proxy_channel_id" translatable="false">Proxy Channel</string>
-    <string name="github_url" translatable="false">https://github.com/wgtunnel/wgtunnel/issues</string>
+    <string name="github_url" translatable="false">https://github.com/xuanthanhtnt/Wireguard/issues</string>
     <string name="github_sponsors_url" translatable="false">https://github.com/sponsors/zaneschepke</string>
     <string name="kofi_url" translatable="false">https://ko-fi.com/zaneschepke</string>
     <string name="liberapay_url" translatable="false">https://liberapay.com/zaneschepke</string>
-    <string name="docs_url" translatable="false">https://wgtunnel.com/docs/getting-started</string>
-    <string name="website_url" translatable="false">https://wgtunnel.com</string>
+    <string name="docs_url" translatable="false">https://github.com/xuanthanhtnt/Wireguard#readme</string>
+    <string name="website_url" translatable="false">https://github.com/xuanthanhtnt/Wireguard</string>
     <string name="translation_url" translatable="false">https://translate.wgtunnel.com/project/wgtunnel/invite?h=11b5b7bf2099293095775d4477320c772818907</string>
     <string name="privacy_policy_url" translatable="false">https://wgtunnel.com/privacy-policy/</string>
     <string name="docs_wildcards" translatable="false">https://wgtunnel.com/docs/auto-tunneling</string>
@@ -816,4 +816,23 @@
 
     <string name="xt_seconds_fmt">%1$d s</string>
     <string name="xt_minutes_fmt">%1$d min</string>
+
+    <!-- ===================== WG VPN: about & updates ===================== -->
+    <string name="xt_repo_name" translatable="false">xuanthanhtnt/Wireguard</string>
+    <string name="xt_repo_url" translatable="false">https://github.com/xuanthanhtnt/Wireguard</string>
+    <string name="xt_issues_url" translatable="false">https://github.com/xuanthanhtnt/Wireguard/issues</string>
+    <string name="xt_releases_url" translatable="false">https://github.com/xuanthanhtnt/Wireguard/releases</string>
+    <string name="xt_about_tab">About</string>
+    <string name="xt_about_tagline">WireGuard &amp; AmneziaWG VPN that watches your server</string>
+    <string name="xt_version_fmt">Version %1$s</string>
+    <string name="xt_version_label">Version</string>
+    <string name="xt_build_info">Version %1$s • Android %2$s • tap to copy</string>
+    <string name="xt_group_updates">Updates</string>
+    <string name="xt_update_auto_desc">Installed: %1$s. A new version is looked for on GitHub every day.</string>
+    <string name="xt_releases">All releases</string>
+    <string name="xt_releases_desc">Change log and APK files on GitHub</string>
+    <string name="xt_group_features">Features</string>
+    <string name="xt_group_info">Information</string>
+    <string name="xt_source_code">Source code on GitHub</string>
+    <string name="xt_report_issue">Report a problem or suggest an idea</string>
 </resources>

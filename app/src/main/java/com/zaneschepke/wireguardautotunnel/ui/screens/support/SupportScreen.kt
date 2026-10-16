@@ -1,27 +1,34 @@
 package com.zaneschepke.wireguardautotunnel.ui.screens.support
 
+import android.os.Build
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.Launch
 import androidx.compose.material.icons.outlined.Balance
-import androidx.compose.material.icons.outlined.Book
-import androidx.compose.material.icons.outlined.Computer
-import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.ErrorOutline
+import androidx.compose.material.icons.outlined.HealthAndSafety
 import androidx.compose.material.icons.outlined.InstallMobile
-import androidx.compose.material.icons.outlined.Mail
 import androidx.compose.material.icons.outlined.Memory
-import androidx.compose.material.icons.outlined.Policy
-import androidx.compose.material.icons.outlined.Reviews
-import androidx.compose.material.icons.outlined.Translate
-import androidx.compose.material.icons.outlined.Web
+import androidx.compose.material.icons.outlined.Restore
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -30,11 +37,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -58,18 +66,15 @@ import com.zaneschepke.wireguardautotunnel.ui.screens.support.components.UpdateD
 import com.zaneschepke.wireguardautotunnel.util.Constants
 import com.zaneschepke.wireguardautotunnel.util.StringValue
 import com.zaneschepke.wireguardautotunnel.util.extensions.canInstallPackages
-import com.zaneschepke.wireguardautotunnel.util.extensions.launchPlayStoreListing
-import com.zaneschepke.wireguardautotunnel.util.extensions.launchPlayStoreReview
-import com.zaneschepke.wireguardautotunnel.util.extensions.launchSupportEmail
 import com.zaneschepke.wireguardautotunnel.util.extensions.openWebUrl
 import com.zaneschepke.wireguardautotunnel.viewmodel.SharedAppViewModel
 import com.zaneschepke.wireguardautotunnel.viewmodel.SupportViewModel
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
 import org.koin.compose.viewmodel.koinActivityViewModel
 import org.orbitmvi.orbit.compose.collectAsState
 
+/** WG VPN "About" tab: app info, updates from GitHub Releases, project links and licenses. */
 @Composable
 fun SupportScreen(
     viewModel: SupportViewModel = koinViewModel(),
@@ -86,6 +91,7 @@ fun SupportScreen(
 
     var showPermissionDialog by rememberSaveable { mutableStateOf(false) }
 
+    // Opened from an "update available" notification: check (and optionally download) right away
     LaunchedEffect(Unit) {
         sharedViewModel.supportAutoUpdateRequests.collect { startDownload ->
             if (BuildConfig.DEBUG) return@collect
@@ -99,23 +105,18 @@ fun SupportScreen(
         }
     }
 
-    val issuesUrl = stringResource(R.string.github_url)
-    val izzyUrl = stringResource(R.string.fdroid_url)
-    val telegramUrl = stringResource(R.string.telegram_url)
-    val matrixUrl = stringResource(R.string.matrix_url)
-    val docsUrl = stringResource(R.string.docs_url)
-    val websiteUrl = stringResource(R.string.website_url)
-    val desktopDownloadUrl = stringResource(R.string.desktop_download_url)
-    val translationUrl = stringResource(R.string.translation_url)
-    val privacyPolicyUrl = stringResource(R.string.privacy_policy_url)
-    val playStoreUrl = "https://play.google.com/store/apps/details?id=${context.packageName}"
-    val playReviewsUrl =
-        "https://play.google.com/store/apps/details?id=${context.packageName}&showAllReviews=true"
-
-    val version = remember {
-        "v${BuildConfig.VERSION_NAME +
-                if(BuildConfig.DEBUG) "-debug" else "" }"
+    // The update row sits at the top of this screen, so there is nothing to scroll to
+    LaunchedEffect(Unit) {
+        sharedViewModel.showUpdateStatusRequested.collect { requested ->
+            if (requested) sharedViewModel.consumeShowUpdateStatus()
+        }
     }
+
+    val repoUrl = stringResource(R.string.xt_repo_url)
+    val issuesUrl = stringResource(R.string.xt_issues_url)
+    val releasesUrl = stringResource(R.string.xt_releases_url)
+
+    val version = remember { BuildConfig.VERSION_NAME + if (BuildConfig.DEBUG) "-debug" else "" }
 
     val focusRequester = remember { FocusRequester() }
 
@@ -150,164 +151,24 @@ fun SupportScreen(
         }
     }
 
-    val scrollState = rememberScrollState()
-
-    // The update row is the last one, so this brings it into view
-    LaunchedEffect(Unit) {
-        sharedViewModel.showUpdateStatusRequested.collect { requested ->
-            if (!requested) return@collect
-            val bottom = snapshotFlow { scrollState.maxValue }.first { it != Int.MAX_VALUE }
-            scrollState.animateScrollTo(bottom)
-            sharedViewModel.consumeShowUpdateStatus()
-        }
-    }
-
     Column(
-        modifier = Modifier.fillMaxSize().verticalScroll(scrollState),
+        modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.Top),
     ) {
-        GroupLabel(
-            stringResource(R.string.thank_you),
-            modifier = Modifier.padding(horizontal = 16.dp),
-            MaterialTheme.colorScheme.onSurface,
-        )
-        Column {
-            GroupLabel(stringResource(R.string.resources), Modifier.padding(horizontal = 16.dp))
-            SurfaceRow(
-                leading = { Icon(Icons.Outlined.Favorite, contentDescription = null) },
-                title = stringResource(R.string.donate),
-                onClick = { navController.push(Route.Donate) },
-                modifier = Modifier.focusRequester(focusRequester),
-            )
-            SurfaceRow(
-                stringResource(R.string.docs_description),
-                onClick = { openWebUrl(docsUrl) },
-                leading = { Icon(Icons.Outlined.Book, contentDescription = null) },
-                trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
-            )
-            SurfaceRow(
-                stringResource(R.string.website),
-                onClick = { openWebUrl(websiteUrl) },
-                leading = { Icon(Icons.Outlined.Web, contentDescription = null) },
-                trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
-            )
-            SurfaceRow(
-                stringResource(R.string.desktop_app),
-                onClick = { openWebUrl(desktopDownloadUrl) },
-                leading = { Icon(Icons.Outlined.Computer, contentDescription = null) },
-                trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
-            )
-            SurfaceRow(
-                stringResource(R.string.translation),
-                onClick = { openWebUrl(translationUrl) },
-                description = { DescriptionText(stringResource(R.string.help_translate)) },
-                leading = { Icon(Icons.Outlined.Translate, contentDescription = null) },
-                trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
-            )
-            SurfaceRow(
-                leading = { Icon(Icons.Outlined.Balance, contentDescription = null) },
-                title = stringResource(R.string.licenses),
-                onClick = { navController.push(Route.License) },
-            )
-            SurfaceRow(
-                leading = { Icon(Icons.Outlined.Policy, contentDescription = null) },
-                title = stringResource(R.string.privacy_policy),
-                trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
-                onClick = { openWebUrl(privacyPolicyUrl) },
-            )
-            if (BuildConfig.FLAVOR == Constants.GOOGLE_PLAY_FLAVOR) {
-                SurfaceRow(
-                    leading = { Icon(Icons.Outlined.Reviews, contentDescription = null) },
-                    title = stringResource(R.string.review),
-                    trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
-                    onClick = {
-                        context.launchPlayStoreReview().onFailure { openWebUrl(playReviewsUrl) }
-                    },
-                )
-            }
-        }
+        AboutHeader(version = version)
+
+        // ------------------------------------------------------------------ updates
         Column {
             GroupLabel(
-                stringResource(R.string.contact),
+                stringResource(R.string.xt_group_updates),
                 modifier = Modifier.padding(horizontal = 16.dp),
-            )
-            SurfaceRow(
-                leading = {
-                    Icon(
-                        ImageVector.vectorResource(R.drawable.matrix),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp),
-                    )
-                },
-                title = stringResource(R.string.join_matrix),
-                trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
-                onClick = { openWebUrl(matrixUrl) },
-            )
-            SurfaceRow(
-                leading = {
-                    Icon(
-                        ImageVector.vectorResource(R.drawable.telegram),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp),
-                    )
-                },
-                title = stringResource(R.string.join_telegram),
-                trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
-                onClick = { openWebUrl(telegramUrl) },
-            )
-            SurfaceRow(
-                leading = {
-                    Icon(
-                        ImageVector.vectorResource(R.drawable.github),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp),
-                    )
-                },
-                title = stringResource(R.string.open_issue),
-                trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
-                onClick = { openWebUrl(issuesUrl) },
-            )
-            SurfaceRow(
-                leading = { Icon(Icons.Outlined.Mail, contentDescription = null) },
-                title = stringResource(R.string.email_description),
-                trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
-                onClick = {
-                    context.launchSupportEmail().onFailure {
-                        scope.launch {
-                            viewModel.postSideEffect(
-                                GlobalSideEffect.Snackbar(
-                                    StringValue.StringResource(R.string.no_email_detected),
-                                    ToastType.Error,
-                                )
-                            )
-                        }
-                    }
-                },
-            )
-        }
-        Column {
-            GroupLabel(
-                stringResource(R.string.other),
-                modifier = Modifier.padding(horizontal = 16.dp),
-            )
-            SurfaceRow(
-                leading = { Icon(Icons.Outlined.Memory, contentDescription = null) },
-                title = stringResource(R.string.about),
-                description = {
-                    Column {
-                        DescriptionText(stringResource(R.string.version_template, version))
-                        DescriptionText(
-                            stringResource(R.string.flavor_template, BuildConfig.FLAVOR)
-                        )
-                    }
-                },
-                onClick = { clipboardManager.copy(version) },
             )
             val download = supportState.download
             val downloading = download as? UpdateDownloadState.Downloading
             val downloadReady = download is UpdateDownloadState.Completed
             val downloadFailed = download is UpdateDownloadState.Failed
+            val isStandalone = BuildConfig.FLAVOR == Constants.STANDALONE_FLAVOR
             SurfaceRow(
                 leading = { Icon(Icons.Outlined.InstallMobile, contentDescription = null) },
                 title =
@@ -330,39 +191,132 @@ fun SupportScreen(
                         downloadFailed -> {
                             { DescriptionText(stringResource(R.string.update_tap_to_retry)) }
                         }
-                        else -> null
+                        else -> {
+                            {
+                                DescriptionText(
+                                    stringResource(R.string.xt_update_auto_desc, version)
+                                )
+                            }
+                        }
                     },
                 onClick = {
-                    if (BuildConfig.DEBUG) {
-                        scope.launch {
-                            viewModel.postSideEffect(
-                                GlobalSideEffect.Snackbar(
-                                    StringValue.StringResource(R.string.update_check_unsupported),
-                                    ToastType.Warning,
-                                )
-                            )
-                        }
-                        return@SurfaceRow
-                    }
-                    when (BuildConfig.FLAVOR) {
-                        Constants.GOOGLE_PLAY_FLAVOR ->
-                            context.launchPlayStoreListing().onFailure { openWebUrl(playStoreUrl) }
-                        Constants.FDROID_FLAVOR -> openWebUrl(izzyUrl)
+                    when {
+                        BuildConfig.DEBUG || !isStandalone -> openWebUrl(releasesUrl)
                         // A running or finished download reopens the dialog, no new check
-                        else ->
-                            if (downloading != null || downloadReady) {
-                                viewModel.showActiveDownload()
-                            } else {
-                                viewModel.checkForStandaloneUpdate()
-                            }
+                        downloading != null || downloadReady -> viewModel.showActiveDownload()
+                        else -> viewModel.checkForStandaloneUpdate()
                     }
                 },
-                trailing =
-                    if (BuildConfig.FLAVOR == Constants.STANDALONE_FLAVOR) null
-                    else {
-                        { Icon(Icons.AutoMirrored.Outlined.Launch, null) }
-                    },
+                modifier = Modifier.focusRequester(focusRequester),
             )
+            SurfaceRow(
+                leading = { Icon(Icons.Outlined.Restore, contentDescription = null) },
+                title = stringResource(R.string.xt_releases),
+                description = { DescriptionText(stringResource(R.string.xt_releases_desc)) },
+                trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
+                onClick = { openWebUrl(releasesUrl) },
+            )
+        }
+
+        // ------------------------------------------------------------------ features
+        Column {
+            GroupLabel(
+                stringResource(R.string.xt_group_features),
+                modifier = Modifier.padding(horizontal = 16.dp),
+            )
+            SurfaceRow(
+                leading = { Icon(Icons.Outlined.HealthAndSafety, contentDescription = null) },
+                title = stringResource(R.string.xt_watchdog_title),
+                description = { DescriptionText(stringResource(R.string.xt_watchdog_entry_desc)) },
+                onClick = { navController.push(Route.ServerWatchdog) },
+            )
+        }
+
+        // ------------------------------------------------------------------ information
+        Column(modifier = Modifier.padding(bottom = 16.dp)) {
+            GroupLabel(
+                stringResource(R.string.xt_group_info),
+                modifier = Modifier.padding(horizontal = 16.dp),
+            )
+            SurfaceRow(
+                leading = {
+                    Icon(
+                        ImageVector.vectorResource(R.drawable.github),
+                        contentDescription = null,
+                        modifier = Modifier.size(24.dp),
+                    )
+                },
+                title = stringResource(R.string.xt_source_code),
+                description = { DescriptionText(stringResource(R.string.xt_repo_name)) },
+                trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
+                onClick = { openWebUrl(repoUrl) },
+            )
+            SurfaceRow(
+                leading = { Icon(Icons.Outlined.ErrorOutline, contentDescription = null) },
+                title = stringResource(R.string.xt_report_issue),
+                trailing = { Icon(Icons.AutoMirrored.Outlined.Launch, null) },
+                onClick = { openWebUrl(issuesUrl) },
+            )
+            SurfaceRow(
+                leading = { Icon(Icons.Outlined.Balance, contentDescription = null) },
+                title = stringResource(R.string.licenses),
+                onClick = { navController.push(Route.License) },
+            )
+            SurfaceRow(
+                leading = { Icon(Icons.Outlined.Memory, contentDescription = null) },
+                title = stringResource(R.string.xt_version_label),
+                description = {
+                    DescriptionText(
+                        stringResource(R.string.xt_build_info, version, Build.VERSION.RELEASE)
+                    )
+                },
+                onClick = { clipboardManager.copy(version) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun AboutHeader(version: String) {
+    Card(
+        colors =
+            CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp),
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(16.dp),
+        ) {
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier =
+                    Modifier.size(64.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color(0xFF0F2036)),
+            ) {
+                Image(
+                    imageVector = ImageVector.vectorResource(R.drawable.ic_launcher_foreground_xt),
+                    contentDescription = null,
+                    modifier = Modifier.size(64.dp),
+                )
+            }
+            Spacer(modifier = Modifier.width(16.dp))
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(
+                    stringResource(R.string.app_name),
+                    style = MaterialTheme.typography.titleLarge,
+                )
+                Text(
+                    stringResource(R.string.xt_version_fmt, version),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                Text(
+                    stringResource(R.string.xt_about_tagline),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
     }
 }

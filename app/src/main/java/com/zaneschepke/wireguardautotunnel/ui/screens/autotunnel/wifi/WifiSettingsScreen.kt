@@ -24,7 +24,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
@@ -105,22 +104,7 @@ fun WifiSettingsScreen(viewModel: AutoTunnelViewModel = koinViewModel()) {
             SurfaceRow(
                 leading = { Icon(Icons.Outlined.Filter1, contentDescription = null) },
                 title = stringResource(R.string.use_wildcards),
-                description = {
-                    val descriptionText = stringResource(R.string.wildcard_desc)
-                    val learnMoreText = stringResource(R.string.learn_more)
-                    val url = stringResource(R.string.docs_wildcards)
-                    val annotatedString = buildAnnotatedString {
-                        append(descriptionText)
-                        append(" ")
-
-                        val start = length
-                        append(learnMoreText)
-                        val end = length
-
-                        addLink(url = LinkAnnotation.Url(url), start = start, end = end)
-                    }
-                    DescriptionText(annotatedString)
-                },
+                description = { DescriptionText(stringResource(R.string.wildcard_desc)) },
                 trailing = {
                     ThemedSwitch(
                         checked = uiState.autoTunnelSettings.isWildcardsEnabled,

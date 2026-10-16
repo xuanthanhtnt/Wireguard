@@ -10,6 +10,7 @@ import com.zaneschepke.wireguardautotunnel.data.repository.DownloadManagerUpdate
 import com.zaneschepke.wireguardautotunnel.data.repository.GitHubUpdateRepository
 import com.zaneschepke.wireguardautotunnel.domain.repository.UpdateDownloader
 import com.zaneschepke.wireguardautotunnel.domain.repository.UpdateRepository
+import com.zaneschepke.wireguardautotunnel.util.Constants
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.singleOf
 import org.koin.core.qualifier.named
@@ -34,7 +35,12 @@ val networkModule = lazyModule {
     singleOf(::KtorGitHubApi) bind GitHubApi::class
 
     single<UpdateRepository> {
-        GitHubUpdateRepository(get(), "wgtunnel", "android", get(named(Dispatcher.IO)))
+        GitHubUpdateRepository(
+            get(),
+            Constants.UPDATE_REPO_OWNER,
+            Constants.UPDATE_REPO_NAME,
+            get(named(Dispatcher.IO)),
+        )
     }
 
     single<UpdateDownloader> {

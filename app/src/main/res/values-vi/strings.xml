@@ -119,4 +119,49 @@
 
     <string name="xt_seconds_fmt">%1$d giây</string>
     <string name="xt_minutes_fmt">%1$d phút</string>
+
+    <!-- ===================== WG VPN: giới thiệu & cập nhật ===================== -->
+    <string name="xt_about_tab">Giới thiệu</string>
+    <string name="xt_about_tagline">VPN WireGuard &amp; AmneziaWG tự giám sát máy chủ</string>
+    <string name="xt_version_fmt">Phiên bản %1$s</string>
+    <string name="xt_version_label">Phiên bản</string>
+    <string name="xt_build_info">Phiên bản %1$s • Android %2$s • chạm để sao chép</string>
+    <string name="xt_group_updates">Cập nhật</string>
+    <string name="xt_update_auto_desc">Đang dùng: %1$s. Ứng dụng tự tìm phiên bản mới trên GitHub mỗi ngày.</string>
+    <string name="xt_releases">Các bản phát hành</string>
+    <string name="xt_releases_desc">Nhật ký thay đổi và file APK trên GitHub</string>
+    <string name="xt_group_features">Tính năng</string>
+    <string name="xt_group_info">Thông tin</string>
+    <string name="xt_source_code">Mã nguồn trên GitHub</string>
+    <string name="xt_report_issue">Báo lỗi hoặc góp ý</string>
+    <string name="allow">Cho phép</string>
+    <string name="cancel">Hủy</string>
+    <string name="cancel_download">Hủy tải xuống</string>
+    <string name="check_for_update">Kiểm tra cập nhật</string>
+    <string name="checking_for_update">Đang kiểm tra cập nhật</string>
+    <string name="download">Tải xuống</string>
+    <string name="download_and_install">Tải xuống và cài đặt</string>
+    <string name="downloading">Đang tải xuống…</string>
+    <string name="downloading_update">Đang tải bản cập nhật…</string>
+    <string name="install">Cài đặt</string>
+    <string name="install_updated_permission">Ứng dụng cần quyền cài đặt để cập nhật.</string>
+    <string name="latest_installed">Bạn đang dùng phiên bản mới nhất.</string>
+    <string name="licenses">Giấy phép mã nguồn mở</string>
+    <string name="no_browser_detected">Không tìm thấy trình duyệt</string>
+    <string name="permission_required">Cần cấp quyền</string>
+    <string name="release_notes">Ghi chú phát hành</string>
+    <string name="update">Cập nhật</string>
+    <string name="update_available">Có bản cập nhật mới!</string>
+    <string name="update_check_failed">Kiểm tra cập nhật thất bại.</string>
+    <string name="update_download_background_hint">Bạn có thể đóng hộp thoại này, việc tải xuống vẫn tiếp tục chạy nền.</string>
+    <string name="update_download_failed">Tải bản cập nhật thất bại.</string>
+    <string name="update_download_failed_title">Tải bản cập nhật thất bại</string>
+    <string name="update_download_retrying">Mất kết nối khi tải, đang thử lại…</string>
+    <string name="update_notification_message">Đã có phiên bản %1$s.</string>
+    <string name="update_ready_message">Chạm để cài đặt bản cập nhật đã tải.</string>
+    <string name="update_ready_to_install">Bản cập nhật đã sẵn sàng</string>
+    <string name="update_tap_to_install">Chạm để cài đặt</string>
+    <string name="update_tap_to_retry">Chạm để thử lại</string>
+    <string name="update_waiting_for_network">Đang chờ kết nối mạng…</string>
+    <string name="update_waiting_for_wifi">Đang chờ Wi-Fi vì bản cập nhật khá lớn so với dữ liệu di động.</string>
 </resources>

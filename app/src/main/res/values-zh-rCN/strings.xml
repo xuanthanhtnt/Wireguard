@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">在局域网中使用隧道</string>
     <string name="prominent_background_location_message">此功能需要“后台位置信息”权限，以便在应用程序关闭时也能监测 Wi-Fi SSID。有关详情，请参阅“支持”页面上的隐私政策链接。</string>
     <string name="prominent_background_location_title">后台定位披露</string>
-    <string name="thank_you">感谢您使用 WireguardXT!</string>
+    <string name="thank_you">感谢您使用 WG VPN!</string>
     <string name="trusted_ssid_value_description">确认修改 SSID</string>
     <string name="add_tunnels_text">从文件或 zip 添加</string>
     <string name="add_from_qr">从二维码添加</string>
@@ -414,7 +414,7 @@
     <string name="restore_failed_invalid_file">恢复失败。请选择有效的备份文件（.sqlite3 或 .sqlite3.aes）</string>
     <string name="error_invalid_config_url">该链接返回了无效的配置文件。请确保您使用的是直接下载链接。</string>
     <string name="local_network_permission_title">需要本地网络访问权限</string>
-    <string name="local_network_permission_intro">WireguardXT 需要访问您的本地网络才能正常运行。</string>
+    <string name="local_network_permission_intro">WG VPN 需要访问您的本地网络才能正常运行。</string>
     <string name="local_network_permission_issues_intro">没有这个权限，你可能会遇到以下问题：</string>
     <string name="local_network_permission_feature_tunnels">- 涉及拆分隧道、LAN 绕过或托管于本地网络的服务器的连接问题</string>
     <string name="local_network_permission_feature_autotunnel">- 自动隧道和分流隧道功能</string>

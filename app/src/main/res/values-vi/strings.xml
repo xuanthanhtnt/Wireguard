@@ -8,7 +8,7 @@
     <string name="privacy_policy">Chính sách quyền riêng tư</string>
     <string name="prominent_background_location_message">Tính năng này yêu cầu quyền truy cập vị trí nền (background location permission) để có thể giám sát SSID Wi-Fi ngay cả khi ứng dụng đang đóng. Để biết thêm chi tiết, vui lòng xem Chính sách quyền riêng tư được liên kết trên màn hình Hỗ trợ.</string>
     <string name="prominent_background_location_title">Tiết lộ quyền truy cập vị trí nền</string>
-    <string name="thank_you">Cảm ơn vì đã sử dụng WireguardXT!</string>
+    <string name="thank_you">Cảm ơn vì đã sử dụng WG VPN!</string>
     <string name="trusted_ssid_value_description">Gửi SSID</string>
     <string name="add_tunnels_text">Thêm từ tệp hoặc tệp zip</string>
     <string name="add_from_qr">Thêm từ mã QR</string>
@@ -31,10 +31,10 @@
     <string name="notification_connection_manual">Kết nối thủ công</string>
     <string name="notification_connection_auto">Đường nối tự động</string>
 
-    <!-- ===================== WireguardXT: giám sát máy chủ ===================== -->
+    <!-- ===================== WG VPN: giám sát máy chủ ===================== -->
     <string name="xt_watchdog_title">Giám sát máy chủ</string>
     <string name="xt_watchdog_entry_desc">Tự cập nhật IP máy chủ và tạm ngắt VPN khi máy chủ mất điện</string>
-    <string name="xt_notification_connection_watchdog">WireguardXT tự động</string>
+    <string name="xt_notification_connection_watchdog">WG VPN tự động</string>
 
     <string name="xt_group_ip_watch">IP máy chủ</string>
     <string name="xt_ip_watch">Tự cập nhật IP máy chủ</string>
@@ -53,7 +53,7 @@
     <string name="xt_source_changed">IP đã đổi: %1$s → %2$s</string>
     <string name="xt_source_lookup_error">Tra cứu thất bại: %1$s</string>
     <string name="xt_source_dialog_title">Nguồn IP cho %1$s</string>
-    <string name="xt_source_dialog_body">Dùng khi Endpoint của tunnel là địa chỉ IP. Nhập tên miền DDNS của máy chủ (vd: nhacuatoi.duckdns.org) hoặc một URL http(s) trả về IP hiện tại của máy chủ. Khi nguồn này trỏ tới IP mới, WireguardXT sẽ sửa lại Endpoint trong cấu hình. Để trống để tắt.</string>
+    <string name="xt_source_dialog_body">Dùng khi Endpoint của tunnel là địa chỉ IP. Nhập tên miền DDNS của máy chủ (vd: nhacuatoi.duckdns.org) hoặc một URL http(s) trả về IP hiện tại của máy chủ. Khi nguồn này trỏ tới IP mới, WG VPN sẽ sửa lại Endpoint trong cấu hình. Để trống để tắt.</string>
     <string name="xt_source_dialog_label">Tên miền DDNS hoặc URL</string>
     <string name="xt_source_dialog_hint">nhacuatoi.duckdns.org</string>
 
@@ -80,7 +80,7 @@
     <string name="xt_notify_events">Thông báo khi có thay đổi</string>
     <string name="xt_notify_events_desc">Hiện thông báo khi IP được cập nhật hoặc VPN kết nối lại</string>
     <string name="xt_battery_title">Cho phép chạy nền không giới hạn</string>
-    <string name="xt_battery_desc">Cần thiết để WireguardXT tiếp tục kiểm tra máy chủ và tự kết nối lại khi VPN đang tạm ngắt. Chạm để cho phép.</string>
+    <string name="xt_battery_desc">Cần thiết để WG VPN tiếp tục kiểm tra máy chủ và tự kết nối lại khi VPN đang tạm ngắt. Chạm để cho phép.</string>
     <string name="xt_proxy_mode_note">Tự tạm ngắt chỉ áp dụng cho chế độ VPN và Lockdown.</string>
     <string name="xt_always_on_note">Lưu ý: nếu trong cài đặt Android đã bật \"VPN luôn bật\" kèm \"Chặn kết nối không dùng VPN\" cho ứng dụng này, Android sẽ tự chặn Internet khi VPN đang tạm ngắt.</string>
 

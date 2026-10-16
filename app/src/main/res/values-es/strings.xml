@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">Túnel en ethernet</string>
     <string name="prominent_background_location_message">La monitorización SSID Wi-Fi necesita de permiso de ubicación en segundo plano incluso si la app está cerrada. Mira el enlace a la Política de Privacidad en la pantalla de ayuda para más detalles.</string>
     <string name="prominent_background_location_title">Divulgación de la ubicación en segundo plano</string>
-    <string name="thank_you">¡Gracias por usar WireguardXT!</string>
+    <string name="thank_you">¡Gracias por usar WG VPN!</string>
     <string name="trusted_ssid_value_description">Enviar SSID</string>
     <string name="add_tunnels_text">Añadir desde archivo o zip</string>
     <string name="add_from_qr">Añadir mediante código QR</string>
@@ -434,7 +434,7 @@
     <string name="restore_failed_invalid_file">Restauración fallida. Seleccione un archivo de copia de seguridad válido (.sqlite3 o .sqlite3.aes)</string>
     <string name="error_invalid_config_url">Este enlace devolvió un archivo de configuración no válido. Asegúrese de usar un enlace directo de descarga</string>
     <string name="local_network_permission_title">Se necesita acceso a la red local</string>
-    <string name="local_network_permission_intro">WireguardXT necesita acceso a su red local para que algunas características funcionen correctamente.</string>
+    <string name="local_network_permission_intro">WG VPN necesita acceso a su red local para que algunas características funcionen correctamente.</string>
     <string name="local_network_permission_issues_intro">Sin este permiso, puede experimentar problemas con:</string>
     <string name="local_network_permission_feature_tunnels">- Problemas de conexión con túneles divididos, bypass LAN o servidores alojados en su red local</string>
     <string name="local_network_permission_feature_autotunnel">- Túnel automático y funciones de túnel dividido</string>

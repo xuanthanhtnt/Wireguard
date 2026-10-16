@@ -29,7 +29,7 @@ interface TunnelProvider {
 
     suspend fun updateTunnel(tunnel: Tunnel): Result<Unit>
 
-    /** WireguardXT: re-applies peers in place, optionally after a fresh endpoint DNS lookup. */
+    /** WG VPN: re-applies peers in place, optionally after a fresh endpoint DNS lookup. */
     suspend fun bounceTunnel(tunnelId: Int, withFreshResolution: Boolean): Boolean
 
     val backendStatus: StateFlow<BackendStatus>

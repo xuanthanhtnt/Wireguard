@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">이더넷에서 터널 사용</string>
     <string name="prominent_background_location_message">애플리케이션이 닫혔을 때에도 Wi-Fi SSID를 모니터링하려면 백그라운드 위치 권한이 필요합니다. 자세한 사항은 지원 메뉴의 개인정보취급방침을 확인해주십시오.</string>
     <string name="prominent_background_location_title">백그라운드 위치 접근</string>
-    <string name="thank_you">WireguardXT을 이용해주셔서 감사드립니다!</string>
+    <string name="thank_you">WG VPN을 이용해주셔서 감사드립니다!</string>
     <string name="trusted_ssid_value_description">SSID 제출</string>
     <string name="add_tunnels_text">파일이나 압축 파일에서 추가하기</string>
     <string name="add_from_qr">QR 코드에서 추가하기</string>
@@ -434,7 +434,7 @@
     <string name="restore_failed_invalid_file">복원 실패. 올바른 백업 파일을 선택하세요 (.sqlite3 혹은 .sqlite3.aes)</string>
     <string name="error_invalid_config_url">링크에서 반환한 설정 파일이 유효하지 않습니다. 직접 다운로드 링크인지 확인하세요</string>
     <string name="local_network_permission_title">로컬 네트워크 접근 필요</string>
-    <string name="local_network_permission_intro">WireguardXT의 여러 기능이 제대로 동작하려면 로컬 네트워크 접근 권한이 필요합니다.</string>
+    <string name="local_network_permission_intro">WG VPN의 여러 기능이 제대로 동작하려면 로컬 네트워크 접근 권한이 필요합니다.</string>
     <string name="local_network_permission_issues_intro">권한이 없다면 다음과 같은 문제들이 발생할 수 있습니다.</string>
     <string name="local_network_permission_feature_tunnels">- 분할 터널링, LAN 제외, 로컬 네트워크에서 호스팅하는 서버와의 연결 문제</string>
     <string name="local_network_permission_feature_autotunnel">- 자동 터널링 및 분할 터널링 기능</string>

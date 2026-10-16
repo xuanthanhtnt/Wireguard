@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">Terowongan pada ethernet</string>
     <string name="prominent_background_location_message">Fitur ini memerlukan izin lokasi latar belakang untuk mengaktifkan pemantauan SSID Wi-Fi bahkan saat aplikasi ditutup. Untuk detail selengkapnya, silakan lihat Kebijakan Privasi yang tertaut di layar Dukungan.</string>
     <string name="prominent_background_location_title">Pengungkapan Lokasi Latar Belakang</string>
-    <string name="thank_you">Terima kasih telah menggunakan WireguardXT!</string>
+    <string name="thank_you">Terima kasih telah menggunakan WG VPN!</string>
     <string name="trusted_ssid_value_description">Kirim SSID</string>
     <string name="add_tunnels_text">Tambah dari file atau zip</string>
     <string name="add_from_qr">Tambah dari kode QR</string>

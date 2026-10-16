@@ -43,7 +43,7 @@ import kotlinx.coroutines.withTimeoutOrNull
 import timber.log.Timber
 
 /**
- * WireguardXT server watchdog.
+ * WG VPN server watchdog.
  *
  * 1. **Server IP watch** – periodically looks up the server hostname (or the DDNS name / URL the
  *    user attached to a static-IP tunnel) over the physical network. When the server came back with

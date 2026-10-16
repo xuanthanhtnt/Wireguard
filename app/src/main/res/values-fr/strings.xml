@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">Tunnel sur Ethernet</string>
     <string name="prominent_background_location_message">Cette fonctionnalité nécessite d\'autoriser les services de localisation en arrière-plan pour activer la surveillance du SSID Wi-Fi même lorsque l\'application est fermée. Pour plus de détails, veuillez consulter la politique de confidentialité disponible sur l\'écran d\'assistance.</string>
     <string name="prominent_background_location_title">Divulgation de la localisation en arrière-plan</string>
-    <string name="thank_you">Merci d\'utiliser WireguardXT !</string>
+    <string name="thank_you">Merci d\'utiliser WG VPN !</string>
     <string name="trusted_ssid_value_description">Envoyer le SSID</string>
     <string name="add_tunnels_text">Ajouter depuis un fichier ou un zip</string>
     <string name="add_from_qr">Ajouter depuis un code QR</string>
@@ -441,7 +441,7 @@
     <string name="restore_failed_invalid_file">Échec de la restauration. Sélectionnez un fichier de sauvegarde valide (.sqlite3 ou .sqlite3.aes)</string>
     <string name="error_invalid_config_url">Ce lien a renvoyé un fichier de configuration invalide. Assurez-vous d\'utiliser un lien de téléchargement direct</string>
     <string name="local_network_permission_title">Accès au réseau local requis</string>
-    <string name="local_network_permission_intro">WireguardXT a besoin d\'accéder à votre réseau local pour que plusieurs fonctionnalités fonctionnent correctement.</string>
+    <string name="local_network_permission_intro">WG VPN a besoin d\'accéder à votre réseau local pour que plusieurs fonctionnalités fonctionnent correctement.</string>
     <string name="local_network_permission_issues_intro">Sans cette autorisation, vous pourriez rencontrer des problèmes avec :</string>
     <string name="local_network_permission_feature_tunnels">- Problèmes de connexion avec le tunneling partagé, le contournement LAN ou les serveurs hébergés sur votre réseau local</string>
     <string name="local_network_permission_feature_autotunnel">- Les fonctionnalités de tunnel automatique et de tunneling partagé</string>

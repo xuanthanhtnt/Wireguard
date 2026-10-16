@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/icon.png" width="128" alt="WireguardXT" />
+  <img src="docs/icon.png" width="128" alt="WG VPN" />
 </p>
 
-<h1 align="center">WireguardXT</h1>
+<h1 align="center">WG VPN</h1>
 
 <p align="center">Ứng dụng VPN WireGuard / AmneziaWG cho điện thoại và máy tính bảng Android (và Android TV),<br/>
 dựa trên mã nguồn mở <a href="https://github.com/wgtunnel/android">WG Tunnel</a>, bổ sung tính năng <b>tự giám sát máy chủ</b>.</p>
@@ -23,11 +23,11 @@ dựa trên mã nguồn mở <a href="https://github.com/wgtunnel/android">WG Tu
 - Khoá ứng dụng bằng PIN, sao lưu/khôi phục, hỗ trợ Always-on VPN, khởi động cùng máy
 - Giao diện Material 3 tối ưu cho cả điện thoại, **máy tính bảng** và Android TV
 
-### Bổ sung trong WireguardXT — *Cài đặt › WireguardXT › Giám sát máy chủ*
+### Bổ sung trong WG VPN — *Cài đặt › WG VPN › Giám sát máy chủ*
 
 **1. Tự cập nhật IP máy chủ khi IP thay đổi**
 - Định kỳ (1–30 phút) tra cứu lại tên miền máy chủ **bên ngoài tunnel** (DNS của mạng thật + DNS-over-HTTPS Cloudflare/Google).
-- Khi máy chủ khởi động lại và nhận IP mới, WireguardXT tự chuyển tunnel sang IP mới:
+- Khi máy chủ khởi động lại và nhận IP mới, WG VPN tự chuyển tunnel sang IP mới:
   thử cập nhật peer tại chỗ (không ngắt kết nối), nếu chưa được thì khởi động lại tunnel với IP mới
   (ghim tạm 15 phút để không bị bộ nhớ đệm DNS cũ cản trở).
 - Với cấu hình có **Endpoint là địa chỉ IP cố định**: gán cho tunnel một **tên miền DDNS** (vd. `nhacuatoi.duckdns.org`)
@@ -37,7 +37,7 @@ dựa trên mã nguồn mở <a href="https://github.com/wgtunnel/android">WG Tu
 
 **2. Tạm ngắt VPN khi máy chủ bị cúp điện — để không mất Internet**
 - Khi tunnel bắt tay thất bại liên tục quá thời gian đặt (45 giây – 5 phút) **trong khi Internet của máy vẫn hoạt động**
-  (được kiểm tra trực tiếp bên ngoài tunnel), WireguardXT xác định máy chủ đang mất kết nối và **tạm tắt VPN**.
+  (được kiểm tra trực tiếp bên ngoài tunnel), WG VPN xác định máy chủ đang mất kết nối và **tạm tắt VPN**.
 - Ở chế độ Lockdown, Kill switch được **tạm bỏ** để vẫn truy cập được Internet (tuỳ chọn), và bật lại khi VPN kết nối lại.
 - Một dịch vụ nền tiếp tục **kiểm tra máy chủ** (1–15 phút một lần, hoặc ngay khi bạn mở khoá màn hình/đổi mạng):
   - *Thử kết nối VPN*: bật VPN vài giây chờ bắt tay — chính xác nhất.
@@ -50,33 +50,36 @@ Mọi sự kiện (đổi IP, tạm ngắt, kết nối lại) được ghi vào
 
 ## Tải và cài đặt
 
+**Tải APK mới nhất:** https://github.com/xuanthanhtnt/Wireguard/releases/latest
+— chọn `wgvpn-fdroid-v….apk` (dùng cho mọi máy).
+
 ### Cách 1 — Build tự động bằng GitHub Actions (không cần cài gì trên máy)
-1. Tạo một repository mới trên GitHub và đẩy toàn bộ thư mục này lên (nhánh `main`).
-2. Vào tab **Actions** → workflow **Build WireguardXT APK** sẽ tự chạy (hoặc bấm *Run workflow*).
+1. Mỗi lần đẩy mã lên nhánh `main` của repository này, GitHub tự build.
+2. Vào tab **Actions** → workflow **Build WG VPN APK** (hoặc bấm *Run workflow* để build lại).
 3. Sau ~10–15 phút, tải file APK trong mục **Artifacts** của lần chạy đó.
-   - `wireguardxt-fdroid-v1.0.0.apk` (universal, dùng cho mọi máy), hoặc bản `-arm64` / `-armv7` nhỏ hơn.
+   - `wgvpn-fdroid-v1.0.0.apk` (universal, dùng cho mọi máy), hoặc bản `-arm64` / `-armv7` nhỏ hơn.
 4. Gắn tag `v1.0.0` (`git tag v1.0.0 && git push --tags`) để tạo bản phát hành (Release) có sẵn APK.
 
 **Khoá ký cố định (nên làm một lần):** để cài bản mới đè lên bản cũ mà không mất dữ liệu, tạo khoá ký:
 ```bash
-keytool -genkeypair -v -keystore wireguardxt.jks -alias wireguardxt -keyalg RSA -keysize 4096 -validity 10000
-base64 -w0 wireguardxt.jks   # sao chép kết quả
+keytool -genkeypair -v -keystore wgvpn.jks -alias wgvpn -keyalg RSA -keysize 4096 -validity 10000
+base64 -w0 wgvpn.jks   # sao chép kết quả
 ```
 Rồi thêm vào *Settings › Secrets and variables › Actions*: `KEYSTORE_BASE64`, `SIGNING_STORE_PASSWORD`,
-`SIGNING_KEY_ALIAS` (= `wireguardxt`), `SIGNING_KEY_PASSWORD`. Nếu không có, mỗi lần build dùng khoá tạm.
+`SIGNING_KEY_ALIAS` (= `wgvpn`), `SIGNING_KEY_PASSWORD`. Nếu không có, mỗi lần build dùng khoá tạm.
 
 ### Cách 2 — Build bằng Android Studio
 - Mở thư mục dự án bằng Android Studio (bản mới nhất), JDK 21.
-- Bản thử: chọn biến thể `fdroidDebug` → Run (ứng dụng tên *WireguardXT Debug*).
-- Bản phát hành: tạo `app/keystore/wireguardxt.jks` và khai báo trong `local.properties`:
+- Bản thử: chọn biến thể `fdroidDebug` → Run (ứng dụng tên *WG VPN Debug*).
+- Bản phát hành: tạo `app/keystore/wgvpn.jks` và khai báo trong `local.properties`:
   ```properties
   SIGNING_STORE_PASSWORD=...
-  SIGNING_KEY_ALIAS=wireguardxt
+  SIGNING_KEY_ALIAS=wgvpn
   SIGNING_KEY_PASSWORD=...
   ```
   rồi chạy `./gradlew :app:assembleFdroidRelease`.
 
-Yêu cầu: Android 8.0 (API 26) trở lên. Mã ứng dụng: `com.wireguardxt.app` — cài song song được với WG Tunnel.
+Yêu cầu: Android 8.0 (API 26) trở lên. Mã ứng dụng: `com.wgvpn.app` — cài song song được với WG Tunnel.
 
 ## Hướng dẫn nhanh tính năng mới
 1. Nhập cấu hình WireGuard như bình thường.
@@ -101,8 +104,8 @@ Yêu cầu: Android 8.0 (API 26) trở lên. Mã ứng dụng: `com.wireguardxt.
 | `.../ui/screens/settings/watchdog/ServerWatchdogScreen.kt` | Màn hình cài đặt *Giám sát máy chủ* |
 
 ## Giấy phép và ghi công
-WireguardXT là bản phái sinh của **WG Tunnel** © 2023-2025 Zane Schepke, phát hành theo giấy phép **MIT** (xem `LICENSE`).
-Các phần bổ sung của WireguardXT cũng theo giấy phép MIT.
+WG VPN là bản phái sinh của **WG Tunnel** © 2023-2025 Zane Schepke, phát hành theo giấy phép **MIT** (xem `LICENSE`).
+Các phần bổ sung của WG VPN cũng theo giấy phép MIT.
 
-"WireGuard" là nhãn hiệu đã đăng ký của Jason A. Donenfeld. WireguardXT không phải sản phẩm chính thức của dự án WireGuard
-hay WG Tunnel. Biểu tượng của WireguardXT là thiết kế riêng.
+"WireGuard" là nhãn hiệu đã đăng ký của Jason A. Donenfeld. WG VPN không phải sản phẩm chính thức của dự án WireGuard
+hay WG Tunnel. Biểu tượng của WG VPN là thiết kế riêng.

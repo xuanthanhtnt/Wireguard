@@ -12,7 +12,7 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import timber.log.Timber
 
-/** Stores WireguardXT settings, the paused-tunnel state and the event history in DataStore. */
+/** Stores WG VPN settings, the paused-tunnel state and the event history in DataStore. */
 class XtSettingsRepository(private val dataStoreManager: DataStoreManager) {
 
     private val writeMutex = Mutex()

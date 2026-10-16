@@ -75,7 +75,7 @@ configure<ApplicationExtension> {
 
     signingConfigs {
         create(Constants.RELEASE) {
-            storeFile = file(System.getenv("KEY_STORE_PATH") ?: "keystore/wireguardxt.jks")
+            storeFile = file(System.getenv("KEY_STORE_PATH") ?: "keystore/wgvpn.jks")
             storePassword =
                 LocalProperties.get("SIGNING_STORE_PASSWORD")
                     ?: System.getenv("SIGNING_STORE_PASSWORD")
@@ -110,7 +110,7 @@ configure<ApplicationExtension> {
 
         debug {
             applicationIdSuffix = ".debug"
-            resValue("string", "app_name", "WireguardXT Debug")
+            resValue("string", "app_name", "WG VPN Debug")
             isDebuggable = true
             manifestPlaceholders["providerAuthority"] = "${Constants.APP_NAME}.provider.debug"
             buildConfigField(
@@ -123,7 +123,7 @@ configure<ApplicationExtension> {
         create(Constants.NIGHTLY) {
             initWith(buildTypes.getByName(Constants.RELEASE))
             applicationIdSuffix = ".nightly"
-            resValue("string", "app_name", "WireguardXT Nightly")
+            resValue("string", "app_name", "WG VPN Nightly")
             manifestPlaceholders["providerAuthority"] = "${Constants.APP_NAME}.provider.nightly"
             buildConfigField(
                 "String",

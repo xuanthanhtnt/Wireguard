@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">Tunela ethernet bidez</string>
     <string name="prominent_background_location_message">Eginbide honek atzeko planoko kokapen-baimena behar du Wi-Fi SSID monitorizatzeko, aplikazioa itxita dagoenean ere. Xehetasun gehiagorako, ikusi Laguntza pantailan estekatutako Pribatutasun Politika.</string>
     <string name="prominent_background_location_title">Atzeko planoko kokapenaren jakinarazpena</string>
-    <string name="thank_you">Eskerrik asko WireguardXT erabiltzeagatik!</string>
+    <string name="thank_you">Eskerrik asko WG VPN erabiltzeagatik!</string>
     <string name="trusted_ssid_value_description">Bidali SSIDa</string>
     <string name="add_tunnels_text">Gehitu fitxategitik edo zip-etik</string>
     <string name="add_from_qr">Gehitu QR kodetik</string>
@@ -441,7 +441,7 @@
     <string name="restore_failed_invalid_file">Berrezarpenak huts egin du. Hautatu baliozko babeskopia-fitxategi bat (.sqlite3 edo .sqlite3.aes)</string>
     <string name="error_invalid_config_url">Esteka honek konfigurazio-fitxategi baliogabea itzuli du. Ziurtatu deskarga zuzeneko esteka bat erabiltzen ari zarela</string>
     <string name="local_network_permission_title">Sare lokalerako sarbidea beharrezkoa</string>
-    <string name="local_network_permission_intro">WireguardXT-ek zure sare lokalerako sarbidea behar du eginbide batzuek behar bezala funtziona dezaten.</string>
+    <string name="local_network_permission_intro">WG VPN-ek zure sare lokalerako sarbidea behar du eginbide batzuek behar bezala funtziona dezaten.</string>
     <string name="local_network_permission_issues_intro">Baimen hau gabe, honako hauetan arazoak izan ditzakezu:</string>
     <string name="local_network_permission_feature_tunnels">- Konexio-arazoak tunel zatiketarekin, LAN saihespenarekin, edo zure sare lokalean ostatatutako zerbitzariekin</string>
     <string name="local_network_permission_feature_autotunnel">- Tunel automatikoa eta tunel zatiketaren eginbideak</string>

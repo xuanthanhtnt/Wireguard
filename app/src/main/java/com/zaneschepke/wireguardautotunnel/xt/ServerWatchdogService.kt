@@ -12,7 +12,7 @@ import org.koin.core.component.inject
 import timber.log.Timber
 
 /**
- * Keeps WireguardXT alive while a tunnel is paused because its server is down. Without a VPN
+ * Keeps WG VPN alive while a tunnel is paused because its server is down. Without a VPN
  * running, Android would otherwise freeze the app and the server would never be checked again.
  */
 class ServerWatchdogService : Service(), KoinComponent {

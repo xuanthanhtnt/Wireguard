@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">WireguardXT</string>
+    <string name="app_name" translatable="false">WG VPN</string>
     <string name="app_permission_title">Control tunnels and auto-tunnel features.</string>
     <string name="app_permission_description">Control tunnels and auto-tunnel features.</string>
     <string name="vpn_channel_id" translatable="false">VPN Channel</string>
@@ -25,7 +25,7 @@
     <string name="tunnel_on_ethernet">Tunnel on ethernet</string>
     <string name="prominent_background_location_message">This feature requires background location permission to enable Wi-Fi SSID monitoring even while the application is closed. For more details, please see the Privacy Policy linked on the Support screen.</string>
     <string name="prominent_background_location_title">Background Location Disclosure</string>
-    <string name="thank_you">Thank you for using WireguardXT!</string>
+    <string name="thank_you">Thank you for using WG VPN!</string>
     <string name="trusted_ssid_value_description">Submit SSID</string>
     <string name="add_tunnels_text">Add from file or zip</string>
     <string name="add_from_qr">Add from QR code</string>
@@ -598,7 +598,7 @@
 
     <string name="local_network_permission_title">Local Network Access Needed</string>
 
-    <string name="local_network_permission_intro">WireguardXT needs access to your local network for several features to work properly.</string>
+    <string name="local_network_permission_intro">WG VPN needs access to your local network for several features to work properly.</string>
 
     <string name="local_network_permission_issues_intro">Without this permission, you may experience issues with:</string>
 
@@ -727,11 +727,11 @@
     <string name="socks5" translatable="false">SOCKS5</string>
     <string name="http" translatable="false">HTTP</string>
 
-    <!-- ===================== WireguardXT: server watchdog ===================== -->
-    <string name="xt_group_label" translatable="false">WireguardXT</string>
+    <!-- ===================== WG VPN: server watchdog ===================== -->
+    <string name="xt_group_label" translatable="false">WG VPN</string>
     <string name="xt_watchdog_title">Server watchdog</string>
     <string name="xt_watchdog_entry_desc">Auto-update the server IP and pause the VPN while the server is down</string>
-    <string name="xt_notification_connection_watchdog">WireguardXT watchdog</string>
+    <string name="xt_notification_connection_watchdog">WG VPN watchdog</string>
 
     <string name="xt_group_ip_watch">Server IP</string>
     <string name="xt_ip_watch">Auto-update server IP</string>
@@ -750,7 +750,7 @@
     <string name="xt_source_changed">IP changed: %1$s → %2$s</string>
     <string name="xt_source_lookup_error">Lookup failed: %1$s</string>
     <string name="xt_source_dialog_title">IP source for %1$s</string>
-    <string name="xt_source_dialog_body">Used when the tunnel endpoint is a plain IP address. Enter the server\'s DDNS name (e.g. myhome.duckdns.org) or an http(s) URL that returns the server\'s current IP. When it points to a new IP, WireguardXT rewrites the endpoint in this config. Leave empty to turn off.</string>
+    <string name="xt_source_dialog_body">Used when the tunnel endpoint is a plain IP address. Enter the server\'s DDNS name (e.g. myhome.duckdns.org) or an http(s) URL that returns the server\'s current IP. When it points to a new IP, WG VPN rewrites the endpoint in this config. Leave empty to turn off.</string>
     <string name="xt_source_dialog_label">DDNS name or URL</string>
     <string name="xt_source_dialog_hint">myhome.duckdns.org</string>
 
@@ -777,7 +777,7 @@
     <string name="xt_notify_events">Notify about changes</string>
     <string name="xt_notify_events_desc">Show a notification when the IP is updated or the VPN resumes</string>
     <string name="xt_battery_title">Allow unrestricted background use</string>
-    <string name="xt_battery_desc">Needed so WireguardXT can keep checking the server and reconnect on its own while the VPN is paused. Tap to allow.</string>
+    <string name="xt_battery_desc">Needed so WG VPN can keep checking the server and reconnect on its own while the VPN is paused. Tap to allow.</string>
     <string name="xt_proxy_mode_note">Auto-pause only applies in VPN and Lockdown modes.</string>
     <string name="xt_always_on_note">Note: if Android\'s \"Always-on VPN\" with \"Block connections without VPN\" is enabled for this app, Android itself blocks internet while the VPN is paused.</string>
 

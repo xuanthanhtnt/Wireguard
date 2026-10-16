@@ -44,7 +44,7 @@ val coordinatorModule = module {
     }
     singleOf(::AppBoostrapCoordinator)
 
-    // WireguardXT server watchdog
+    // WG VPN server watchdog
     single { XtSettingsRepository(get()) }
     single<XtNetworkApi> { XtNetwork(androidContext(), get()) }
     single<XtPlatform> { AndroidXtPlatform(androidContext(), get()) }

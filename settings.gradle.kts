@@ -19,7 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "WireguardXT"
+rootProject.name = "WG VPN"
 
 // Local dev
 // includeBuild("../core") {

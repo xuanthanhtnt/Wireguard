@@ -16,7 +16,7 @@ enum class ProbeMethod {
     }
 }
 
-/** WireguardXT settings, stored as one JSON document in DataStore. */
+/** WG VPN settings, stored as one JSON document in DataStore. */
 data class XtSettings(
     val ipWatchEnabled: Boolean = true,
     val ipWatchIntervalSec: Int = DEFAULT_IP_WATCH_INTERVAL_SEC,

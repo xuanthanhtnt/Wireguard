@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_permission_title">WireguardXT Kontrol Köprüsü</string>
-    <string name="app_permission_description">WireguardXT Kontrol Köprüsü</string>
+    <string name="app_permission_title">WG VPN Kontrol Köprüsü</string>
+    <string name="app_permission_description">WG VPN Kontrol Köprüsü</string>
     <string name="error_file_extension">Dosya .conf veya .zip değil</string>
     <string name="tunnels">Tüneller</string>
     <string name="tunnel_mobile_data">Mobil veride tünel</string>
@@ -10,7 +10,7 @@
     <string name="tunnel_on_ethernet">Ethernet üzerinde tünel</string>
     <string name="prominent_background_location_message">Bu özellik, uygulamanın kapalı olduğu durumlarda bile Wi-Fi SSID izlemesini etkinleştirmek için arka planda konum izni gerektirir. Daha fazla ayrıntı için lütfen Destek ekranında bağlantısı verilen Gizlilik Politikasına bakın.</string>
     <string name="prominent_background_location_title">Arka Plan Konum Açıklaması</string>
-    <string name="thank_you">WireguardXT’i kullandığınız için teşekkürler!</string>
+    <string name="thank_you">WG VPN’i kullandığınız için teşekkürler!</string>
     <string name="trusted_ssid_value_description">SSID Gönder</string>
     <string name="add_tunnels_text">Dosyadan veya zip’ten ekle</string>
     <string name="add_from_qr">QR kodundan ekle</string>

@@ -8,7 +8,7 @@
     <string name="tunnel_on_ethernet">Túnel na ethernet</string>
     <string name="prominent_background_location_message">Este recurso precisa de permissões de localização em segundo plano para ativar o monitoramento do SSID da rede Wi-Fi mesmo quando a aplicação está fechado. Para mais pormenores, por favor veja a Política de Privacidade no ecrã de Suporte.</string>
     <string name="prominent_background_location_title">Revelar a localização em segundo plano</string>
-    <string name="thank_you">Obrigado por usar o WireguardXT!</string>
+    <string name="thank_you">Obrigado por usar o WG VPN!</string>
     <string name="trusted_ssid_value_description">Envie o SSID</string>
     <string name="add_tunnels_text">Adicionar a partir de ficheiro ou zip</string>
     <string name="add_from_qr">Adicionar a partir de código QR</string>

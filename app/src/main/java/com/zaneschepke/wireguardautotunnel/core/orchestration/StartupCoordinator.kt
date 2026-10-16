@@ -99,7 +99,7 @@ class StartupCoordinator(
             return
         }
         if (XtPauseGate.paused) {
-            Timber.d("Always-On trigger ignored: WireguardXT paused the tunnel, server is down")
+            Timber.d("Always-On trigger ignored: WG VPN paused the tunnel, server is down")
             return
         }
 

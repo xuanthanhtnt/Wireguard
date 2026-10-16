@@ -290,7 +290,7 @@ class TunnelCoordinator(
                 ConfigReconciler.reconcileConfig(config, globalConfig, policy)
             } else config
 
-        // WireguardXT: a server IP change detected by the watchdog is pinned for a few minutes so
+        // WG VPN: a server IP change detected by the watchdog is pinned for a few minutes so
         // the tunnel does not wait for stale DNS caches to expire
         val runConfig = XtEndpointOverrides.apply(tunnelConfig.id, reconciledConfig)
 

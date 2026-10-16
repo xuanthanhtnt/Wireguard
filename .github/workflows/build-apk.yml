@@ -1,4 +1,4 @@
-name: Build WireguardXT APK
+name: Build WG VPN APK
 
 # Builds a signed release APK on every push to main, on version tags (v1.0.0 ...) and on demand.
 # Tags also publish a GitHub Release with the APK files attached.
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
-      KEY_STORE_PATH: ${{ github.workspace }}/app/keystore/wireguardxt.jks
+      KEY_STORE_PATH: ${{ github.workspace }}/app/keystore/wgvpn.jks
     steps:
       - uses: actions/checkout@v4
         with:
@@ -62,10 +62,10 @@ jobs:
           else
             PASS=$(openssl rand -hex 16)
             keytool -genkeypair -v -keystore "$KEY_STORE_PATH" -storepass "$PASS" -keypass "$PASS" \
-              -alias wireguardxt -keyalg RSA -keysize 4096 -validity 10000 \
-              -dname "CN=WireguardXT, O=WireguardXT, C=VN"
+              -alias wgvpn -keyalg RSA -keysize 4096 -validity 10000 \
+              -dname "CN=WG VPN, O=WG VPN, C=VN"
             echo "SIGNING_STORE_PASSWORD=$PASS" >> "$GITHUB_ENV"
-            echo "SIGNING_KEY_ALIAS=wireguardxt" >> "$GITHUB_ENV"
+            echo "SIGNING_KEY_ALIAS=wgvpn" >> "$GITHUB_ENV"
             echo "SIGNING_KEY_PASSWORD=$PASS" >> "$GITHUB_ENV"
             echo "::warning::No KEYSTORE_BASE64 secret: signed with a temporary key. Uninstall the previous build before installing this one, or add the signing secrets."
           fi
@@ -84,7 +84,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: WireguardXT-apk
+          name: WG-VPN-apk
           path: dist/*.apk
           if-no-files-found: error
 

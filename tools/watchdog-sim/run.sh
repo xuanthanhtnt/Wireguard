@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Runs the WireguardXT watchdog logic against a simulated world (DNS, server power/IP, phone
+# Runs the WG VPN watchdog logic against a simulated world (DNS, server power/IP, phone
 # internet) on a plain JVM: no device or Gradle needed.
 #
 # Requirements:

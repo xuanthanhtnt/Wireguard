@@ -128,7 +128,7 @@ class WireGuardAutoTunnel : Application(), KoinComponent {
             boostrapCoordinator.bootstrap(this@WireGuardAutoTunnel)
         }
 
-        // WireguardXT: server IP watch + outage auto-pause (waits for bootstrap itself)
+        // WG VPN: server IP watch + outage auto-pause (waits for bootstrap itself)
         get<ServerWatchdogCoordinator>().start()
     }
 

@@ -9,7 +9,7 @@
     <string name="tunnel_on_ethernet">Tunnel bij ethernet</string>
     <string name="prominent_background_location_message">Deze functie vereist locatierechten om het WiFi SSID te kunnen bepalen. Ook als de applicatie is gesloten. Lees het privacybeleid op het scherm Ondersteuning voor meer informatie.</string>
     <string name="prominent_background_location_title">Achtergrondlocatievrijgave</string>
-    <string name="thank_you">Bedankt voor het gebruiken van WireguardXT!</string>
+    <string name="thank_you">Bedankt voor het gebruiken van WG VPN!</string>
     <string name="trusted_ssid_value_description">Verstuur SSID</string>
     <string name="add_tunnels_text">Toevoegen uit bestand of zip</string>
     <string name="add_from_qr">Toevoegen met QR code</string>

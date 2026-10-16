@@ -22,7 +22,7 @@ import timber.log.Timber
 /**
  * Network helpers that deliberately go around the tunnel.
  *
- * While WireguardXT's own VPN is up, every request from the app would normally be routed into the
+ * While WG VPN's own VPN is up, every request from the app would normally be routed into the
  * (possibly dead) tunnel. The VPN owner app is allowed to bind sockets to the physical network, so
  * all lookups and checks here are bound to the underlying Wi-Fi / mobile / ethernet network.
  */
@@ -217,7 +217,7 @@ class XtNetwork(private val context: Context, private val networkUtils: NetworkU
         connection.readTimeout = TIMEOUT_MS
         connection.useCaches = false
         connection.instanceFollowRedirects = true
-        connection.setRequestProperty("User-Agent", "WireguardXT")
+        connection.setRequestProperty("User-Agent", "WG VPN")
         return connection
     }
 

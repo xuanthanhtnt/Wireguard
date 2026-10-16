@@ -227,7 +227,7 @@
                       network connectivity monitoring."/>
         </service>
 
-        <!-- WireguardXT: keeps the app alive while a tunnel is paused because its server is down -->
+        <!-- WG VPN: keeps the app alive while a tunnel is paused because its server is down -->
         <service
             android:name=".xt.ServerWatchdogService"
             android:enabled="true"

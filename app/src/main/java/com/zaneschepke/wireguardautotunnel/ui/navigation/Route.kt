@@ -159,7 +159,7 @@ sealed class Route : NavKey {
 
     @Keep @Serializable data object TunnelRecovery : Route()
 
-    // WireguardXT server watchdog (IP auto update + outage auto-pause)
+    // WG VPN server watchdog (IP auto update + outage auto-pause)
     @Keep @Serializable data object ServerWatchdog : Route()
 }
 
